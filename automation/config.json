@@ -1,0 +1,42 @@
+{
+  "affiliate_link": "https://join.constantcontact.com/join-now",
+  "cta_primary_text": "Get Started with Constant Contact",
+  "cta_secondary_text": "View Constant Contact Pricing",
+  "cta_satellite_primary_text": "See Our Top Email Marketing Pick",
+  "cta_satellite_primary_link": "https://emailtooladviser.com",
+  "cta_satellite_secondary_text": "Get Started with Constant Contact",
+  "cta_satellite_secondary_link": "https://join.constantcontact.com/join-now",
+  "offer_type": "CPA",
+  "cpa_value": 650,
+  "core_domain": "emailtooladviser.com",
+  "satellite_domains": [
+    "bestemailtoolreviews.com",
+    "emailmarketingrated.com",
+    "emailtoolratings.com",
+    "smallbizemailhub.com"
+  ],
+  "publish_schedule": "3 articles per day per domain",
+  "content_min_words": 2000,
+  "content_max_words": 2500,
+  "author_name": "EmailToolAdviser Editorial Team",
+  "claude_model": "claude-sonnet-4-6",
+  "github_username": "ecombrandsai",
+  "github_repos": [
+    "emailtooladviser",
+    "bestemailtoolreviews",
+    "emailmarketingrated",
+    "emailtoolratings",
+    "smallbizemailhub"
+  ],
+  "price_justification": "At just $12 per month, if your first email campaign brings back even one customer who spends more than $12, you have already made your money back. Most small businesses see returns of $36 for every $1 spent on email marketing.",
+  "site_name": "EmailToolAdviser",
+  "site_tagline": "The Independent Email Marketing Adviser for Small Businesses",
+  "smtp": {
+    "host": "",
+    "port": 587,
+    "user": "",
+    "password": "",
+    "from": "reports@emailtooladviser.com",
+    "to": "owner@emailtooladviser.com"
+  }
+}

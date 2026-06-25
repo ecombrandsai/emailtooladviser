@@ -1,0 +1,16 @@
+{
+  "entries": [
+    { "id": 1,  "keyword_id": null, "url": "/", "type": "home",       "domain": "emailtooladviser.com", "published_at": "2026-06-25T00:00:00Z" },
+    { "id": 2,  "keyword_id": null, "url": "/articles/best-email-marketing-for-small-business",      "type": "article", "domain": "emailtooladviser.com", "published_at": "2026-06-25T00:00:00Z" },
+    { "id": 3,  "keyword_id": null, "url": "/articles/best-email-marketing-for-local-businesses",    "type": "article", "domain": "emailtooladviser.com", "published_at": "2026-06-25T00:00:00Z" },
+    { "id": 4,  "keyword_id": null, "url": "/articles/how-to-do-email-marketing-small-business",     "type": "article", "domain": "emailtooladviser.com", "published_at": "2026-06-25T00:00:00Z" },
+    { "id": 5,  "keyword_id": null, "url": "/articles/email-marketing-tips-small-business",          "type": "article", "domain": "emailtooladviser.com", "published_at": "2026-06-25T00:00:00Z" },
+    { "id": 6,  "keyword_id": null, "url": "/articles/what-to-send-in-a-business-newsletter",        "type": "article", "domain": "emailtooladviser.com", "published_at": "2026-06-25T00:00:00Z" },
+    { "id": 7,  "keyword_id": null, "url": "/comparisons/constant-contact-vs-mailchimp",             "type": "comparison", "domain": "emailtooladviser.com", "published_at": "2026-06-25T00:00:00Z" },
+    { "id": 8,  "keyword_id": null, "url": "/comparisons/constant-contact-vs-activecampaign",        "type": "comparison", "domain": "emailtooladviser.com", "published_at": "2026-06-25T00:00:00Z" },
+    { "id": 9,  "keyword_id": null, "url": "/comparisons/constant-contact-vs-mailerlite",            "type": "comparison", "domain": "emailtooladviser.com", "published_at": "2026-06-25T00:00:00Z" },
+    { "id": 10, "keyword_id": null, "url": "/reviews/constant-contact-review",                       "type": "review", "domain": "emailtooladviser.com", "published_at": "2026-06-25T00:00:00Z" },
+    { "id": 11, "keyword_id": null, "url": "/reviews/mailchimp-review",                              "type": "review", "domain": "emailtooladviser.com", "published_at": "2026-06-25T00:00:00Z" },
+    { "id": 12, "keyword_id": null, "url": "/reviews/mailerlite-review",                             "type": "review", "domain": "emailtooladviser.com", "published_at": "2026-06-25T00:00:00Z" }
+  ]
+}

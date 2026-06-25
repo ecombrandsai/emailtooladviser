@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /automation/
+Disallow: /data/
+Disallow: /reports/
+Disallow: /dashboard/
+
+Sitemap: https://emailtooladviser.com/sitemap.xml

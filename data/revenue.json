@@ -1,0 +1,19 @@
+{
+  "updated_at": "2026-06-25T00:00:00Z",
+  "cpa_value": 650,
+  "this_month_conversions": 0,
+  "this_month_revenue": 0,
+  "last_month_conversions": 0,
+  "last_month_revenue": 0,
+  "ytd_conversions": 0,
+  "ytd_revenue": 0,
+  "mom_growth_pct": 0,
+  "projected_next_month": 0,
+  "by_domain": {
+    "emailtooladviser.com":    { "conversions": 0, "revenue": 0 },
+    "bestemailtoolreviews.com": { "conversions": 0, "revenue": 0 },
+    "emailmarketingrated.com": { "conversions": 0, "revenue": 0 },
+    "emailtoolratings.com":    { "conversions": 0, "revenue": 0 },
+    "smallbizemailhub.com":    { "conversions": 0, "revenue": 0 }
+  }
+}

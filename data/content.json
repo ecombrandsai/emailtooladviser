@@ -1,0 +1,36 @@
+{
+  "updated_at": "2026-06-25T00:00:00Z",
+  "domains": {
+    "emailtooladviser.com": {
+      "articles_live": 11,
+      "articles_this_week": 11,
+      "next_scheduled_publish": "2026-06-26T06:00:00Z"
+    },
+    "bestemailtoolreviews.com": {
+      "articles_live": 1,
+      "articles_this_week": 1,
+      "next_scheduled_publish": "2026-06-26T06:00:00Z"
+    },
+    "emailmarketingrated.com": {
+      "articles_live": 1,
+      "articles_this_week": 1,
+      "next_scheduled_publish": "2026-06-26T06:00:00Z"
+    },
+    "emailtoolratings.com": {
+      "articles_live": 1,
+      "articles_this_week": 1,
+      "next_scheduled_publish": "2026-06-26T06:00:00Z"
+    },
+    "smallbizemailhub.com": {
+      "articles_live": 1,
+      "articles_this_week": 1,
+      "next_scheduled_publish": "2026-06-26T06:00:00Z"
+    }
+  },
+  "totals": {
+    "articles_live": 15,
+    "articles_in_queue": 85,
+    "articles_published_this_week": 15,
+    "days_of_content_queued_at_current_pace": 5
+  }
+}

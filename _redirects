@@ -1,0 +1,16 @@
+# Cloudflare Pages redirects
+# Clean URLs — .html optional
+/articles/best-email-marketing-for-small-business /articles/best-email-marketing-for-small-business.html 200
+/articles/best-email-marketing-for-local-businesses /articles/best-email-marketing-for-local-businesses.html 200
+/articles/how-to-do-email-marketing-small-business /articles/how-to-do-email-marketing-small-business.html 200
+/articles/email-marketing-tips-small-business /articles/email-marketing-tips-small-business.html 200
+/articles/what-to-send-in-a-business-newsletter /articles/what-to-send-in-a-business-newsletter.html 200
+/comparisons/constant-contact-vs-mailchimp /comparisons/constant-contact-vs-mailchimp.html 200
+/comparisons/constant-contact-vs-activecampaign /comparisons/constant-contact-vs-activecampaign.html 200
+/comparisons/constant-contact-vs-mailerlite /comparisons/constant-contact-vs-mailerlite.html 200
+/reviews/constant-contact-review /reviews/constant-contact-review.html 200
+/reviews/mailchimp-review /reviews/mailchimp-review.html 200
+/reviews/mailerlite-review /reviews/mailerlite-review.html 200
+
+# Affiliate cloaking redirect (optional)
+/go/constant-contact https://join.constantcontact.com/join-now 302

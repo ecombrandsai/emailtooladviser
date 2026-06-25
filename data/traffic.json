@@ -1,0 +1,11 @@
+{
+  "updated_at": "2026-06-25T00:00:00Z",
+  "domains": {
+    "emailtooladviser.com":    { "today": 0, "this_week": 0, "this_month": 0, "last_month": 0 },
+    "bestemailtoolreviews.com": { "today": 0, "this_week": 0, "this_month": 0, "last_month": 0 },
+    "emailmarketingrated.com": { "today": 0, "this_week": 0, "this_month": 0, "last_month": 0 },
+    "emailtoolratings.com":    { "today": 0, "this_week": 0, "this_month": 0, "last_month": 0 },
+    "smallbizemailhub.com":    { "today": 0, "this_week": 0, "this_month": 0, "last_month": 0 }
+  },
+  "totals": { "today": 0, "this_week": 0, "this_month": 0, "wow_growth_pct": 0 }
+}
