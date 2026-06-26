@@ -9,22 +9,36 @@
           "type": "photo",
           "filename": "home-hero.jpg",
           "keyword": "best email marketing software for small business 2026",
-          "prompt": "Editorial photograph of a 40s small business owner — woman, brown hair pulled back, denim shirt — sitting at her sunlit shop counter reviewing campaign performance on a 14-inch laptop. Soft morning light streams through the front window of her flower shop. Wide framing, photojournalism style, shallow depth of field, magazine-grade, warm color grading. No text, no logos, no watermarks. 16:9.",
+          "prompt": "Editorial photograph of a 40s small business owner \u2014 woman, brown hair pulled back, denim shirt \u2014 sitting at her sunlit shop counter reviewing campaign performance on a 14-inch laptop. Soft morning light streams through the front window of her flower shop. Wide framing, photojournalism style, shallow depth of field, magazine-grade, warm color grading. No text, no logos, no watermarks. 16:9.",
           "placement": "top_of_article",
-          "status": "pending"
+          "status": "completed",
+          "completed_date": "2026-06-26T02:21:06.893423"
         },
         {
           "id": "home-stats",
           "type": "graphic",
           "graphic_type": "stat_callout",
           "stats": [
-            {"number": "$36", "label": "Average return per $1 spent on email"},
-            {"number": "97.4%", "label": "Constant Contact inbox placement"},
-            {"number": "60 days", "label": "Free trial — most generous in industry"},
-            {"number": "4.8 / 5", "label": "Editorial score after 90 days"}
+            {
+              "number": "$36",
+              "label": "Average return per $1 spent on email"
+            },
+            {
+              "number": "97.4%",
+              "label": "Constant Contact inbox placement"
+            },
+            {
+              "number": "60 days",
+              "label": "Free trial \u2014 most generous in industry"
+            },
+            {
+              "number": "4.8 / 5",
+              "label": "Editorial score after 90 days"
+            }
           ],
           "placement": "before_h2_2",
-          "status": "pending"
+          "status": "completed",
+          "completed_date": "2026-06-26T02:19:44.952246"
         }
       ]
     },
@@ -38,26 +52,64 @@
           "keyword": "best email marketing for small business",
           "prompt": "Editorial photograph of a small business owner in his late 40s at a wooden counter inside his neighborhood services shop, hand-writing in a leather notebook beside a 14-inch laptop showing an inbox interface (text illegible). Warm afternoon light, brick wall, vintage Edison-bulb pendant lighting in the background. Shallow depth of field, Wired Magazine aesthetic. No text or logos. 16:9.",
           "placement": "top_of_article",
-          "status": "pending"
+          "status": "completed",
+          "completed_date": "2026-06-26T02:22:00.165706"
         },
         {
           "id": "best-sb-comparison",
           "type": "graphic",
           "graphic_type": "comparison_table",
-          "title": "Top 5 Email Marketing Tools for Small Business — Editorial Score",
+          "title": "Top 5 Email Marketing Tools for Small Business \u2014 Editorial Score",
           "data": {
             "winner": "Constant Contact",
-            "columns": ["Tool", "Best For", "Starting Price", "Free Plan", "Score"],
+            "columns": [
+              "Tool",
+              "Best For",
+              "Starting Price",
+              "Free Plan",
+              "Score"
+            ],
             "rows": [
-              ["Constant Contact", "Small & local businesses", "$12/mo", "60-day trial", "4.8 / 5"],
-              ["MailerLite", "Bloggers, side hustles", "$10/mo", "Yes (1k contacts)", "4.0 / 5"],
-              ["Mailchimp", "Visual designers", "$13/mo", "Yes (500 contacts)", "3.8 / 5"],
-              ["ActiveCampaign", "Advanced automation", "$29/mo", "14-day trial", "3.7 / 5"],
-              ["Brevo (Sendinblue)", "Transactional + marketing", "$9/mo", "Yes (300/day)", "3.5 / 5"]
+              [
+                "Constant Contact",
+                "Small & local businesses",
+                "$12/mo",
+                "60-day trial",
+                "4.8 / 5"
+              ],
+              [
+                "MailerLite",
+                "Bloggers, side hustles",
+                "$10/mo",
+                "Yes (1k contacts)",
+                "4.0 / 5"
+              ],
+              [
+                "Mailchimp",
+                "Visual designers",
+                "$13/mo",
+                "Yes (500 contacts)",
+                "3.8 / 5"
+              ],
+              [
+                "ActiveCampaign",
+                "Advanced automation",
+                "$29/mo",
+                "14-day trial",
+                "3.7 / 5"
+              ],
+              [
+                "Brevo (Sendinblue)",
+                "Transactional + marketing",
+                "$9/mo",
+                "Yes (300/day)",
+                "3.5 / 5"
+              ]
             ]
           },
           "placement": "before_comparison_section",
-          "status": "pending"
+          "status": "completed",
+          "completed_date": "2026-06-26T02:19:45.050144"
         },
         {
           "id": "best-sb-winner",
@@ -68,7 +120,8 @@
           "cta_text": "Get Started with Constant Contact",
           "cta_link": "https://join.constantcontact.com/join-now",
           "placement": "before_verdict_section",
-          "status": "pending"
+          "status": "completed",
+          "completed_date": "2026-06-26T02:19:45.050520"
         }
       ]
     },
@@ -82,7 +135,8 @@
           "keyword": "best email marketing for local businesses",
           "prompt": "Editorial photograph of a pizzeria owner in his 50s wearing a flour-dusted denim apron, leaning against the counter of his neighborhood pizza shop, looking at his phone. Brick oven glowing behind him, hand-written specials board on a sandwich board, golden-hour light through the front window. Documentary photography in the style of Saveur or Eater. Shallow depth of field. No text or logos. 16:9.",
           "placement": "top_of_article",
-          "status": "pending"
+          "status": "completed",
+          "completed_date": "2026-06-26T02:22:52.156955"
         },
         {
           "id": "local-steps",
@@ -90,14 +144,35 @@
           "graphic_type": "process_steps",
           "title": "First 100 local subscribers in 30 days",
           "steps": [
-            {"number": "1", "title": "QR code at point of sale", "description": "Sign at checkout: 'Join the list — get 15% off your next visit.' Converts 20-40% of customers."},
-            {"number": "2", "title": "Receipt opt-in", "description": "POS checkbox at checkout. Adds 10-20% more on top of the QR sign."},
-            {"number": "3", "title": "Staff prompt", "description": "Train counter staff to ask: 'Want to join our list for specials?'"},
-            {"number": "4", "title": "GBP link", "description": "Add your signup form to your Google Business Profile quick-action."},
-            {"number": "5", "title": "Targeted Facebook lead form", "description": "$50-100 to a 3-mile radius. Picks up 30-50 emails."}
+            {
+              "number": "1",
+              "title": "QR code at point of sale",
+              "description": "Sign at checkout: 'Join the list \u2014 get 15% off your next visit.' Converts 20-40% of customers."
+            },
+            {
+              "number": "2",
+              "title": "Receipt opt-in",
+              "description": "POS checkbox at checkout. Adds 10-20% more on top of the QR sign."
+            },
+            {
+              "number": "3",
+              "title": "Staff prompt",
+              "description": "Train counter staff to ask: 'Want to join our list for specials?'"
+            },
+            {
+              "number": "4",
+              "title": "GBP link",
+              "description": "Add your signup form to your Google Business Profile quick-action."
+            },
+            {
+              "number": "5",
+              "title": "Targeted Facebook lead form",
+              "description": "$50-100 to a 3-mile radius. Picks up 30-50 emails."
+            }
           ],
           "placement": "before_h2_3",
-          "status": "pending"
+          "status": "completed",
+          "completed_date": "2026-06-26T02:19:45.150984"
         }
       ]
     },
@@ -111,7 +186,8 @@
           "keyword": "how to do email marketing for a small business",
           "prompt": "Editorial photograph of a 30s small business founder at a co-working space, writing on a sticky-note wall with a black Sharpie. The wall shows a workflow diagram with unlabeled arrows and blocks (no readable text). She wears a cream sweater, hair tied back, focused expression. Modern minimalist interior, soft fluorescent light. Fast Company style. No text or logos. 16:9.",
           "placement": "top_of_article",
-          "status": "pending"
+          "status": "completed",
+          "completed_date": "2026-06-26T02:23:43.621281"
         },
         {
           "id": "how-to-steps",
@@ -119,17 +195,50 @@
           "graphic_type": "process_steps",
           "title": "10-step launch plan",
           "steps": [
-            {"number": "1", "title": "Pick a platform", "description": "Constant Contact for non-technical owners. 60-day free trial."},
-            {"number": "2", "title": "Build initial list", "description": "Import existing contacts + add a sign-up form."},
-            {"number": "3", "title": "Pick one template", "description": "Single-column, on-brand. Use it for six months."},
-            {"number": "4", "title": "Write subject lines like texts", "description": "30-50 chars, plain language, person-to-person tone."},
-            {"number": "5", "title": "Schedule first send", "description": "Tuesday or Thursday at 10 AM ET."},
-            {"number": "6", "title": "Welcome series", "description": "3 emails: welcome, story, most-popular."},
-            {"number": "7", "title": "Track 3 numbers", "description": "Open rate, click rate, unsubscribe rate."},
-            {"number": "8", "title": "Authenticate domain", "description": "SPF, DKIM, DMARC. 10 minutes inside Constant Contact."}
+            {
+              "number": "1",
+              "title": "Pick a platform",
+              "description": "Constant Contact for non-technical owners. 60-day free trial."
+            },
+            {
+              "number": "2",
+              "title": "Build initial list",
+              "description": "Import existing contacts + add a sign-up form."
+            },
+            {
+              "number": "3",
+              "title": "Pick one template",
+              "description": "Single-column, on-brand. Use it for six months."
+            },
+            {
+              "number": "4",
+              "title": "Write subject lines like texts",
+              "description": "30-50 chars, plain language, person-to-person tone."
+            },
+            {
+              "number": "5",
+              "title": "Schedule first send",
+              "description": "Tuesday or Thursday at 10 AM ET."
+            },
+            {
+              "number": "6",
+              "title": "Welcome series",
+              "description": "3 emails: welcome, story, most-popular."
+            },
+            {
+              "number": "7",
+              "title": "Track 3 numbers",
+              "description": "Open rate, click rate, unsubscribe rate."
+            },
+            {
+              "number": "8",
+              "title": "Authenticate domain",
+              "description": "SPF, DKIM, DMARC. 10 minutes inside Constant Contact."
+            }
           ],
           "placement": "before_h2_2",
-          "status": "pending"
+          "status": "completed",
+          "completed_date": "2026-06-26T02:19:45.259718"
         }
       ]
     },
@@ -141,9 +250,10 @@
           "type": "photo",
           "filename": "tips-hero.jpg",
           "keyword": "email marketing tips for small business",
-          "prompt": "Editorial photograph of a bakery owner in her 30s, dusted in flour, smiling and showing her phone (screen showing a clean inbox, text illegible) to a regular customer across her glass display case. Croissants visible, chalkboard menu, Edison-bulb lights. Bon Appétit aesthetic, warm afternoon light. No text or logos. 16:9.",
+          "prompt": "Editorial photograph of a bakery owner in her 30s, dusted in flour, smiling and showing her phone (screen showing a clean inbox, text illegible) to a regular customer across her glass display case. Croissants visible, chalkboard menu, Edison-bulb lights. Bon App\u00e9tit aesthetic, warm afternoon light. No text or logos. 16:9.",
           "placement": "top_of_article",
-          "status": "pending"
+          "status": "completed",
+          "completed_date": "2026-06-26T02:24:36.095059"
         },
         {
           "id": "tips-bars",
@@ -151,14 +261,35 @@
           "graphic_type": "bar_chart",
           "title": "What moves the open rate (impact by tip)",
           "data": [
-            {"label": "From-name = person (not brand)", "value": 95, "color": "#10b981"},
-            {"label": "Subject line under 50 chars", "value": 78, "color": "#2563eb"},
-            {"label": "Single CTA per email", "value": 72, "color": "#2563eb"},
-            {"label": "P.S. line written on purpose", "value": 55, "color": "#f59e0b"},
-            {"label": "Send time optimization", "value": 28, "color": "#94a3b8"}
+            {
+              "label": "From-name = person (not brand)",
+              "value": 95,
+              "color": "#10b981"
+            },
+            {
+              "label": "Subject line under 50 chars",
+              "value": 78,
+              "color": "#2563eb"
+            },
+            {
+              "label": "Single CTA per email",
+              "value": 72,
+              "color": "#2563eb"
+            },
+            {
+              "label": "P.S. line written on purpose",
+              "value": 55,
+              "color": "#f59e0b"
+            },
+            {
+              "label": "Send time optimization",
+              "value": 28,
+              "color": "#94a3b8"
+            }
           ],
           "placement": "before_h2_2",
-          "status": "pending"
+          "status": "completed",
+          "completed_date": "2026-06-26T02:19:45.337664"
         }
       ]
     },
@@ -172,7 +303,8 @@
           "keyword": "what to send in a business newsletter",
           "prompt": "Editorial photograph of an independent bookstore owner in his 60s with reading glasses on a chain, holding an open clothbound journal at his wooden checkout counter. Floor-to-ceiling shelves of books behind him, a brass desk lamp, a vintage rotary phone. The New Yorker aesthetic, warm afternoon light. No text or logos. 16:9.",
           "placement": "top_of_article",
-          "status": "pending"
+          "status": "completed",
+          "completed_date": "2026-06-26T02:25:25.731665"
         }
       ]
     },
@@ -186,7 +318,8 @@
           "keyword": "constant contact vs mailchimp",
           "prompt": "Editorial split-frame composition: on the left, a small business owner on the phone with a relieved expression in a warm shop interior; on the right, a young designer in a minimal modern studio at a desktop computer with a graphics tablet, cool ambient light. Thin neutral divider line. Editorial photography, balanced and comparative. No text or logos. 16:9.",
           "placement": "top_of_article",
-          "status": "pending"
+          "status": "completed",
+          "completed_date": "2026-06-26T02:26:15.823093"
         },
         {
           "id": "cc-mc-pricing",
@@ -194,11 +327,34 @@
           "graphic_type": "pricing_table",
           "title": "Apples-to-apples pricing (1,000 contacts)",
           "plans": [
-            {"name": "Constant Contact Standard", "price": "$45/mo", "contacts": "1,000 contacts", "features": ["Phone support included", "Predictable as list grows", "AI subject line tester", "Events tool", "60-day free trial"]},
-            {"name": "Mailchimp Standard", "price": "$30/mo", "contacts": "1,000 contacts", "features": ["No phone support below $350", "Customer Journeys builder", "200+ templates", "Strict list-quality rules", "Free tier branding"]}
+            {
+              "name": "Constant Contact Standard",
+              "price": "$45/mo",
+              "contacts": "1,000 contacts",
+              "features": [
+                "Phone support included",
+                "Predictable as list grows",
+                "AI subject line tester",
+                "Events tool",
+                "60-day free trial"
+              ]
+            },
+            {
+              "name": "Mailchimp Standard",
+              "price": "$30/mo",
+              "contacts": "1,000 contacts",
+              "features": [
+                "No phone support below $350",
+                "Customer Journeys builder",
+                "200+ templates",
+                "Strict list-quality rules",
+                "Free tier branding"
+              ]
+            }
           ],
           "placement": "before_main_cta",
-          "status": "pending"
+          "status": "completed",
+          "completed_date": "2026-06-26T02:19:45.493685"
         },
         {
           "id": "cc-mc-winner",
@@ -209,7 +365,8 @@
           "cta_text": "Get Started with Constant Contact",
           "cta_link": "https://join.constantcontact.com/join-now",
           "placement": "before_verdict_section",
-          "status": "pending"
+          "status": "completed",
+          "completed_date": "2026-06-26T02:19:45.494308"
         }
       ]
     },
@@ -223,18 +380,20 @@
           "keyword": "constant contact vs activecampaign",
           "prompt": "Editorial split-frame composition: on the left, a small business owner in a comfortable shop interior phoning customer support with relief, warm tone; on the right, a marketing professional in a modern open-plan office surrounded by multiple monitors showing flow diagrams (text illegible), cool tone. Editorial photography, neutral and balanced. No text or logos. 16:9.",
           "placement": "top_of_article",
-          "status": "pending"
+          "status": "completed",
+          "completed_date": "2026-06-26T02:27:08.186652"
         },
         {
           "id": "cc-ac-winner",
           "type": "graphic",
           "graphic_type": "winner_card",
           "winner": "Constant Contact for typical small business",
-          "reason": "ActiveCampaign wins on automation depth — but most small businesses use 5-10% of its capability. For owner-operated, weekly-cadence senders, Constant Contact's mix of price + ease + included phone support wins.",
+          "reason": "ActiveCampaign wins on automation depth \u2014 but most small businesses use 5-10% of its capability. For owner-operated, weekly-cadence senders, Constant Contact's mix of price + ease + included phone support wins.",
           "cta_text": "Get Started with Constant Contact",
           "cta_link": "https://join.constantcontact.com/join-now",
           "placement": "before_verdict_section",
-          "status": "pending"
+          "status": "completed",
+          "completed_date": "2026-06-26T02:19:45.577649"
         }
       ]
     },
@@ -248,7 +407,8 @@
           "keyword": "constant contact vs mailerlite",
           "prompt": "Editorial split-frame composition: on the left, a small business owner with employees visible at a real shop counter reviewing analytics on a laptop; on the right, a solo content creator in a sunlit home office writing in a notebook beside a single laptop. Editorial photography, balanced and human. No text or logos. 16:9.",
           "placement": "top_of_article",
-          "status": "pending"
+          "status": "completed",
+          "completed_date": "2026-06-26T02:28:02.414659"
         },
         {
           "id": "cc-ml-pros-cons",
@@ -266,7 +426,8 @@
             "Importing a messy customer list? Constant Contact (list-import forgiveness)."
           ],
           "placement": "before_pros_cons_section",
-          "status": "pending"
+          "status": "completed",
+          "completed_date": "2026-06-26T02:19:45.684361"
         }
       ]
     },
@@ -278,27 +439,61 @@
           "type": "photo",
           "filename": "cc-review-hero.jpg",
           "keyword": "constant contact review 2026",
-          "prompt": "Editorial photograph of a small business owner at his service desk smiling while holding a vintage corded business phone receiver — clearly mid-conversation with a helpful support agent. Small-town main-street store interior with vintage signage, late-morning natural light. Editorial documentary photography, warm and relieved tone. No text or logos. 16:9.",
+          "prompt": "Editorial photograph of a small business owner at his service desk smiling while holding a vintage corded business phone receiver \u2014 clearly mid-conversation with a helpful support agent. Small-town main-street store interior with vintage signage, late-morning natural light. Editorial documentary photography, warm and relieved tone. No text or logos. 16:9.",
           "placement": "top_of_article",
-          "status": "pending"
+          "status": "completed",
+          "completed_date": "2026-06-26T02:28:53.525182"
         },
         {
           "id": "cc-scorecard",
           "type": "graphic",
           "graphic_type": "scorecard",
-          "title": "Constant Contact — Editorial Scorecard",
+          "title": "Constant Contact \u2014 Editorial Scorecard",
           "scores": [
-            {"category": "Ease of use (20%)", "score": 5.0, "max": 5},
-            {"category": "Deliverability (20%)", "score": 4.9, "max": 5},
-            {"category": "Support (15%)", "score": 5.0, "max": 5},
-            {"category": "Price predictability (15%)", "score": 4.9, "max": 5},
-            {"category": "Templates (10%)", "score": 4.5, "max": 5},
-            {"category": "Automation depth (10%)", "score": 4.3, "max": 5},
-            {"category": "Integrations (10%)", "score": 4.5, "max": 5},
-            {"category": "Overall", "score": 4.8, "max": 5}
+            {
+              "category": "Ease of use (20%)",
+              "score": 5.0,
+              "max": 5
+            },
+            {
+              "category": "Deliverability (20%)",
+              "score": 4.9,
+              "max": 5
+            },
+            {
+              "category": "Support (15%)",
+              "score": 5.0,
+              "max": 5
+            },
+            {
+              "category": "Price predictability (15%)",
+              "score": 4.9,
+              "max": 5
+            },
+            {
+              "category": "Templates (10%)",
+              "score": 4.5,
+              "max": 5
+            },
+            {
+              "category": "Automation depth (10%)",
+              "score": 4.3,
+              "max": 5
+            },
+            {
+              "category": "Integrations (10%)",
+              "score": 4.5,
+              "max": 5
+            },
+            {
+              "category": "Overall",
+              "score": 4.8,
+              "max": 5
+            }
           ],
           "placement": "after_intro_section",
-          "status": "pending"
+          "status": "completed",
+          "completed_date": "2026-06-26T02:19:45.759819"
         },
         {
           "id": "cc-pricing",
@@ -306,12 +501,46 @@
           "graphic_type": "pricing_table",
           "title": "Constant Contact pricing (500 contacts)",
           "plans": [
-            {"name": "Standard", "price": "$35/mo", "contacts": "Most popular", "features": ["Automations", "Segmentation", "AI assistant", "A/B testing", "Phone support"]},
-            {"name": "Lite", "price": "$12/mo", "contacts": "Starting tier", "features": ["Templates", "Drag-and-drop builder", "Basic reporting", "Phone support", "60-day trial"]},
-            {"name": "Premium", "price": "$80/mo", "contacts": "Power users", "features": ["Revenue tracking", "Dynamic content", "Advanced reporting", "Phone support", "Everything in Standard"]}
+            {
+              "name": "Standard",
+              "price": "$35/mo",
+              "contacts": "Most popular",
+              "features": [
+                "Automations",
+                "Segmentation",
+                "AI assistant",
+                "A/B testing",
+                "Phone support"
+              ]
+            },
+            {
+              "name": "Lite",
+              "price": "$12/mo",
+              "contacts": "Starting tier",
+              "features": [
+                "Templates",
+                "Drag-and-drop builder",
+                "Basic reporting",
+                "Phone support",
+                "60-day trial"
+              ]
+            },
+            {
+              "name": "Premium",
+              "price": "$80/mo",
+              "contacts": "Power users",
+              "features": [
+                "Revenue tracking",
+                "Dynamic content",
+                "Advanced reporting",
+                "Phone support",
+                "Everything in Standard"
+              ]
+            }
           ],
           "placement": "before_main_cta",
-          "status": "pending"
+          "status": "completed",
+          "completed_date": "2026-06-26T02:19:45.759942"
         }
       ]
     }

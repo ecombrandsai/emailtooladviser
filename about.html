@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#2563eb">
@@ -47,17 +51,18 @@
 </head>
 <body>
   <header class="site-header">
-    <div class="container">
-      <a href="/" class="logo">Email<span>ToolAdviser</span></a>
-      <nav class="main-nav" aria-label="Primary">
+    <div class="header-inner">
+      <a href="/" class="logo">Email<span>Tool</span>Adviser</a>
+      <nav class="header-nav" aria-label="Primary">
         <a href="/articles/">Articles</a>
         <a href="/comparisons/">Comparisons</a>
         <a href="/reviews/">Reviews</a>
         <a href="/about.html">About</a>
       </nav>
-      <a href="https://join.constantcontact.com/join-now" class="btn" rel="sponsored noopener" target="_blank">Get Started with Constant Contact</a>
+      <a href="https://join.constantcontact.com/join-now" class="header-btn" rel="sponsored noopener" target="_blank">Get Started - $12/mo</a>
     </div>
   </header>
+  <div class="progress-bar" id="progress-bar"></div>
 
   <nav class="breadcrumbs" aria-label="Breadcrumb">
     <div class="container">
@@ -123,44 +128,52 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <h4>EmailToolAdviser</h4>
-          <p class="brand-blurb">The independent adviser for small businesses comparing email marketing tools. Reviews are written by our editorial team and updated monthly.</p>
-        </div>
-        <div>
-          <h4>Sections</h4>
-          <ul>
-            <li><a href="/articles/">Articles</a></li>
-            <li><a href="/comparisons/">Comparisons</a></li>
-            <li><a href="/reviews/">Reviews</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Top picks</h4>
-          <ul>
-            <li><a href="/reviews/constant-contact-review.html">Constant Contact</a></li>
-            <li><a href="/comparisons/constant-contact-vs-mailchimp.html">vs Mailchimp</a></li>
-            <li><a href="/comparisons/constant-contact-vs-mailerlite.html">vs MailerLite</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>About</h4>
-          <ul>
-            <li><a href="/about.html">About us</a></li>
-            <li><a href="/contact.html">Contact</a></li>
-          </ul>
-        </div>
+  <footer>
+    <div class="footer-main">
+      <div>
+        <div class="footer-brand-name">EmailToolAdviser</div>
+        <p class="footer-brand-desc">The independent adviser for small businesses comparing email marketing tools. Reviews are written by our editorial team and updated monthly.</p>
       </div>
-      <div class="legal">
-        <p><strong>Affiliate disclosure:</strong> This site contains affiliate links. We may earn a commission when you purchase through our links at no extra cost to you. Our recommendations are independent and based on hands-on testing.</p>
-        <p>&copy; 2026 EmailToolAdviser. All rights reserved.</p>
+      <div class="footer-col">
+        <div class="footer-col-title">Sections</div>
+        <a href="/articles/">Articles</a>
+        <a href="/comparisons/">Comparisons</a>
+        <a href="/reviews/">Reviews</a>
       </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Top picks</div>
+        <a href="/reviews/constant-contact-review.html">Constant Contact</a>
+        <a href="/comparisons/constant-contact-vs-mailchimp.html">vs Mailchimp</a>
+        <a href="/comparisons/constant-contact-vs-mailerlite.html">vs MailerLite</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Network</div>
+        <a href="https://bestemailtoolreviews.com">Best Email Tool Reviews</a><a href="https://emailmarketingrated.com">Email Marketing Rated</a><a href="https://emailtoolratings.com">Email Tool Ratings</a><a href="https://smallbizemailhub.com">SmallBiz Email Hub</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 EmailToolAdviser. All rights reserved.</div>
+      <div class="footer-disclosure">Affiliate disclosure: this site contains affiliate links. We may earn a commission when you purchase through our links at no extra cost to you.</div>
     </div>
   </footer>
 
   <script src="/js/main.js"></script>
+<div id="msct">
+    <div class="msct-inner">
+      <div class="msct-info">
+        <div class="msct-icon">CC</div>
+        <div>
+          <div class="msct-text-main">Our Top Pick</div>
+          <div class="msct-text-sub">Constant Contact - from $12/mo</div>
+        </div>
+      </div>
+      <div class="msct-actions">
+        <a href="https://join.constantcontact.com/join-now" rel="sponsored noopener" target="_blank" class="msct-btn">Get Started</a>
+        <button type="button" id="msct-close" class="msct-close">&times;</button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

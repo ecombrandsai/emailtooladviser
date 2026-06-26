@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#2563eb">
@@ -71,17 +75,18 @@
 </head>
 <body>
   <header class="site-header">
-    <div class="container">
-      <a href="/" class="logo">Email<span>ToolAdviser</span></a>
-      <nav class="main-nav" aria-label="Primary">
+    <div class="header-inner">
+      <a href="/" class="logo">Email<span>Tool</span>Adviser</a>
+      <nav class="header-nav" aria-label="Primary">
         <a href="/articles/">Articles</a>
         <a href="/comparisons/">Comparisons</a>
         <a href="/reviews/">Reviews</a>
         <a href="/about.html">About</a>
       </nav>
-      <a href="https://join.constantcontact.com/join-now" class="btn" rel="sponsored noopener" target="_blank">Get Started with Constant Contact</a>
+      <a href="https://join.constantcontact.com/join-now" class="header-btn" rel="sponsored noopener" target="_blank">Get Started - $12/mo</a>
     </div>
   </header>
+  <div class="progress-bar" id="progress-bar"></div>
 
   <nav class="breadcrumbs" aria-label="Breadcrumb">
     <div class="container">
@@ -92,6 +97,8 @@
   </nav>
 
   <main>
+<figure class="hero-image" style="margin:0 0 2.5rem 0;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.08);"><img src="/images/cc-vs-ml-hero.jpg" alt="constant contact vs mailerlite - EmailToolAdviser" width="100%" height="auto" loading="lazy" style="display:block;width:100%;height:auto;max-height:480px;object-fit:cover;"></figure>
+
     <section class="article-header">
       <div class="container container-narrow">
         <div class="meta">
@@ -124,7 +131,10 @@
         </div>
 
         <h2>How They Compare at a Glance</h2>
-        <table class="comparison-table">
+        <div class="comparison-wrap">
+<div class="comparison-header"><h3>How they compare</h3></div>
+<div class="comparison-scroll">
+<table class="comparison-table">
           <thead>
             <tr><th>Feature</th><th>Constant Contact</th><th>MailerLite</th></tr>
           </thead>
@@ -149,6 +159,7 @@
             <tr><td>Our verdict</td><td class="winner">Wins for SMB with customers</td><td>Wins for solopreneurs</td></tr>
           </tbody>
         </table>
+</div></div>
 
         <h2>Pricing: The Honest Breakdown</h2>
         <p>MailerLite is cheaper at every tier. There's no spinning this — the entry price is $10/mo (vs $12/mo for Constant Contact), and the next tiers stay $5-15/mo cheaper. For solopreneurs and side hustles where every dollar matters, MailerLite has a real advantage.</p>
@@ -235,7 +246,9 @@
         </ol>
         <p>Most small businesses finish the full migration in a single afternoon.</p>
 
-        <h2>Our Final Pick for Small Businesses</h2>
+        
+<div data-graphic="cc-ml-pros-cons"><div style="margin:2.5rem 0;"><h3 style="font-size:1.1rem;font-weight:700;color:#1a2332;margin-bottom:1.25rem;">When MailerLite wins vs when Constant Contact wins</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;"><div style="background:#f0fdf4;border:1px solid #86efac;border-radius:12px;padding:1.25rem;"><div style="font-weight:700;color:#15803d;margin-bottom:0.75rem;">✓ Pros</div><div style="padding:0.35rem 0;font-size:0.9rem;color:#166534;display:flex;align-items:flex-start;gap:0.5rem;"><span style="flex-shrink:0;color:#10b981;">✓</span>Solopreneur or one-person blogger? MailerLite's clean UI + free tier wins.</div><div style="padding:0.35rem 0;font-size:0.9rem;color:#166534;display:flex;align-items:flex-start;gap:0.5rem;"><span style="flex-shrink:0;color:#10b981;">✓</span>Side hustle on a tight budget? MailerLite at $10 entry wins.</div><div style="padding:0.35rem 0;font-size:0.9rem;color:#166534;display:flex;align-items:flex-start;gap:0.5rem;"><span style="flex-shrink:0;color:#10b981;">✓</span>Design-savvy creator? MailerLite's templates feel more modern.</div></div><div style="background:#fef2f2;border:1px solid #fca5a5;border-radius:12px;padding:1.25rem;"><div style="font-weight:700;color:#dc2626;margin-bottom:0.75rem;">✗ Cons</div><div style="padding:0.35rem 0;font-size:0.9rem;color:#991b1b;display:flex;align-items:flex-start;gap:0.5rem;"><span style="flex-shrink:0;">✗</span>Real business with employees? Constant Contact wins (phone support).</div><div style="padding:0.35rem 0;font-size:0.9rem;color:#991b1b;display:flex;align-items:flex-start;gap:0.5rem;"><span style="flex-shrink:0;">✗</span>Local service biz with events? Constant Contact (events tool).</div><div style="padding:0.35rem 0;font-size:0.9rem;color:#991b1b;display:flex;align-items:flex-start;gap:0.5rem;"><span style="flex-shrink:0;">✗</span>Importing a messy customer list? Constant Contact (list-import forgiveness).</div></div></div></div></div>
+<h2>Our Final Pick for Small Businesses</h2>
         <p>For solopreneurs, bloggers, and side hustles — MailerLite is genuinely a great pick. The clean UI, real free tier, and lower price are all real advantages.</p>
         <p>For small businesses with employees and customers — Constant Contact wins. The events tool, phone support, list import forgiveness, and 60-day trial all map directly to what small businesses need. The price difference ($10 vs $12 at entry) is real but small. The functional gap in support and small-business-specific features is large.</p>
         <p>For the full review of Constant Contact, see our <a href="/reviews/constant-contact-review.html">Constant Contact review</a>. For the standalone MailerLite review, see our <a href="/reviews/mailerlite-review.html">MailerLite review</a>. For other comparisons, see <a href="/comparisons/constant-contact-vs-mailchimp.html">Constant Contact vs Mailchimp</a>. For the ranked top-5 across all small business email tools, see <a href="/articles/best-email-marketing-for-small-business.html">best email marketing for small business</a>.</p>
@@ -274,44 +287,52 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <h4>EmailToolAdviser</h4>
-          <p class="brand-blurb">The independent adviser for small businesses comparing email marketing tools. Reviews are written by our editorial team and updated monthly.</p>
-        </div>
-        <div>
-          <h4>Sections</h4>
-          <ul>
-            <li><a href="/articles/">Articles</a></li>
-            <li><a href="/comparisons/">Comparisons</a></li>
-            <li><a href="/reviews/">Reviews</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Top picks</h4>
-          <ul>
-            <li><a href="/reviews/constant-contact-review.html">Constant Contact</a></li>
-            <li><a href="/comparisons/constant-contact-vs-mailchimp.html">vs Mailchimp</a></li>
-            <li><a href="/comparisons/constant-contact-vs-mailerlite.html">vs MailerLite</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>About</h4>
-          <ul>
-            <li><a href="/about.html">About us</a></li>
-            <li><a href="/contact.html">Contact</a></li>
-          </ul>
-        </div>
+  <footer>
+    <div class="footer-main">
+      <div>
+        <div class="footer-brand-name">EmailToolAdviser</div>
+        <p class="footer-brand-desc">The independent adviser for small businesses comparing email marketing tools. Reviews are written by our editorial team and updated monthly.</p>
       </div>
-      <div class="legal">
-        <p><strong>Affiliate disclosure:</strong> This site contains affiliate links. We may earn a commission when you purchase through our links at no extra cost to you. Our recommendations are independent and based on hands-on testing.</p>
-        <p>&copy; 2026 EmailToolAdviser. All rights reserved.</p>
+      <div class="footer-col">
+        <div class="footer-col-title">Sections</div>
+        <a href="/articles/">Articles</a>
+        <a href="/comparisons/">Comparisons</a>
+        <a href="/reviews/">Reviews</a>
       </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Top picks</div>
+        <a href="/reviews/constant-contact-review.html">Constant Contact</a>
+        <a href="/comparisons/constant-contact-vs-mailchimp.html">vs Mailchimp</a>
+        <a href="/comparisons/constant-contact-vs-mailerlite.html">vs MailerLite</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Network</div>
+        <a href="https://bestemailtoolreviews.com">Best Email Tool Reviews</a><a href="https://emailmarketingrated.com">Email Marketing Rated</a><a href="https://emailtoolratings.com">Email Tool Ratings</a><a href="https://smallbizemailhub.com">SmallBiz Email Hub</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 EmailToolAdviser. All rights reserved.</div>
+      <div class="footer-disclosure">Affiliate disclosure: this site contains affiliate links. We may earn a commission when you purchase through our links at no extra cost to you.</div>
     </div>
   </footer>
 
   <script src="/js/main.js"></script>
+<div id="msct">
+    <div class="msct-inner">
+      <div class="msct-info">
+        <div class="msct-icon">CC</div>
+        <div>
+          <div class="msct-text-main">Our Top Pick</div>
+          <div class="msct-text-sub">Constant Contact - from $12/mo</div>
+        </div>
+      </div>
+      <div class="msct-actions">
+        <a href="https://join.constantcontact.com/join-now" rel="sponsored noopener" target="_blank" class="msct-btn">Get Started</a>
+        <button type="button" id="msct-close" class="msct-close">&times;</button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
