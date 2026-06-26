@@ -1,8 +1,32 @@
+# robots.txt — AI-bot-aware
+# Search engines: full access
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# AI / LLM training crawlers: allow (review/commentary content has fair-use value)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Anything else
 User-agent: *
 Allow: /
-Disallow: /automation/
-Disallow: /data/
-Disallow: /reports/
-Disallow: /dashboard/
 
 Sitemap: https://emailtooladviser.com/sitemap.xml
