@@ -1,9 +1,0 @@
-# Cloudflare Pages — wildcard rewrites for extension-less URLs.
-# Status 200 = rewrite (not redirect), so no loop possible.
-# These only fire when the original path 404s.
-/articles/:slug      /articles/:slug.html     200
-/comparisons/:slug   /comparisons/:slug.html  200
-/reviews/:slug       /reviews/:slug.html      200
-
-# Affiliate cloaking (the only intentional redirect)
-/go/constant-contact https://join.constantcontact.com/join-now 302
