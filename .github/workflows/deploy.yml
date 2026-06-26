@@ -40,7 +40,7 @@ jobs:
           curl -fsS "https://www.bing.com/ping?sitemap=https://emailtooladviser.com/sitemap.xml" || true
 
       - name: Submit fresh URLs to Search Console (optional)
-        if: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON != '' }}
+        if: ${{ always() }}
         env:
           GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
         run: |
