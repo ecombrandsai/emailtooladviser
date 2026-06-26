@@ -741,3 +741,234 @@ html, body {
 @media (max-width: 480px) {
   .disclosure-popup { width: calc(100vw - 32px); max-width: 280px; }
 }
+
+
+/* ========================================================================
+   v6 patch — Fix 3 (comparison page table stacked cards w/ data-tool)
+              Fix 4 (full-width mobile layout)
+              Fix 5 (mobile CTA buttons full-width + aligned)
+   ======================================================================== */
+
+@media (max-width: 768px) {
+
+  /* ---- Fix 4 — full-width mobile, no overflow --------------------- */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  * { box-sizing: border-box; }
+
+  .container, .container-narrow, .wrapper, .article-container,
+  .article-body, .article-content, .page-wrapper,
+  main, article, section, .content {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  img, video, iframe, table, pre, code {
+    max-width: 100% !important;
+    height: auto;
+  }
+
+  .sidebar, .sticky-sidebar, .article-sidebar { display: none !important; }
+
+  /* ---- Fix 3 — comparison page table stacked cards (3-col layout) -- */
+  /* Apply to ALL tables within main content; data-tool attr drives the
+     per-row tool label */
+  table, .comparison-table, .feature-comparison {
+    overflow-x: visible !important;
+    width: 100% !important;
+    display: block !important;
+  }
+  table thead, .comparison-table thead { display: none !important; }
+  table tbody, .comparison-table tbody { display: block !important; width: 100% !important; }
+
+  table tr, .comparison-table tr {
+    display: block !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    padding: 16px !important;
+    margin-bottom: 12px !important;
+    background: #fff !important;
+    width: 100% !important;
+  }
+
+  /* First cell — bold uppercase Feature label */
+  table tr > td:first-child,
+  .comparison-table tr > td:first-child {
+    display: block !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    font-size: 13px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    margin-bottom: 8px !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    padding: 0 0 6px 0 !important;
+    text-align: left !important;
+    justify-content: flex-start !important;
+  }
+  table tr > td:first-child::before,
+  .comparison-table tr > td:first-child::before {
+    content: "" !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* 2nd / 3rd / Nth td — value rows with tool-name pseudo-label */
+  table tr > td:not(:first-child),
+  .comparison-table tr > td:not(:first-child) {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    padding: 4px 0 !important;
+    border: 0 !important;
+    font-size: 14px !important;
+    color: #475569 !important;
+    text-align: right !important;
+    width: 100% !important;
+  }
+  /* data-tool wins over data-label when both present */
+  table tr > td[data-tool]::before,
+  .comparison-table tr > td[data-tool]::before {
+    content: attr(data-tool) !important;
+    font-weight: 600 !important;
+    color: #64748b !important;
+    font-size: 12px !important;
+    min-width: 120px !important;
+    flex-shrink: 0 !important;
+    text-align: left !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+  }
+  /* Article tables use data-label fallback when no data-tool */
+  table tr > td[data-label]:not([data-tool])::before,
+  .comparison-table tr > td[data-label]:not([data-tool])::before {
+    content: attr(data-label) !important;
+    font-weight: 700 !important;
+    color: #64748b !important;
+    font-size: 12px !important;
+    min-width: 80px !important;
+    flex-shrink: 0 !important;
+    text-align: left !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  .comparison-scroll, .comparison-wrap {
+    overflow-x: visible !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border: 0 !important;
+  }
+
+  /* TOP PICK variant — green-border card with banner */
+  table tr.winner, table tr.winner-row,
+  .comparison-table tr.winner, .comparison-table tr.winner-row {
+    border-color: #22c55e !important;
+    padding-top: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  table tr.winner::before, table tr.winner-row::before,
+  .comparison-table tr.winner::before, .comparison-table tr.winner-row::before {
+    content: "TOP PICK";
+    display: block;
+    background: #22c55e;
+    color: white;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    padding: 4px 0;
+    text-align: center;
+    border-radius: 6px 6px 0 0;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  table tr.winner > td, table tr.winner-row > td,
+  .comparison-table tr.winner > td, .comparison-table tr.winner-row > td {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* ---- Fix 5 — mobile CTA buttons full-width + aligned ------------ */
+  a.cta-button, button.cta-button,
+  .cta-btn, .btn, .btn-primary, .btn-cta, .btn-lg,
+  .pick-cta, .winner-card-btn, .cta-box-btn, .sidebar-pick-btn,
+  a[href*="constantcontact"],
+  a[href*="join-now"],
+  a[href*="ecombrands"],
+  a[href*="?ref=bestemailtoolreviews"],
+  a[href*="?ref=emailmarketingrated"],
+  a[href*="?ref=emailtoolratings"],
+  a[href*="?ref=smallbizemailhub"] {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    padding: 14px 16px !important;
+    min-height: 52px !important;
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+    box-sizing: border-box !important;
+  }
+  /* Header bar links + nav links + breadcrumb chevrons should NOT become block */
+  .site-header a, .header-inner a, .header-nav a,
+  .breadcrumbs a, .footer-main a, .footer-col a,
+  .disclosure-bar a, .sidebar-toc-link,
+  .header-btn {
+    display: inline-block !important;
+    width: auto !important;
+    min-height: 0 !important;
+    padding: revert !important;
+  }
+  /* But the header CTA button itself should stay sized as a button */
+  .header-btn { display: inline-flex !important; align-items: center; }
+
+  /* Inline buttons inside comparison tables — give them breathing room
+     but don't blow them to full width again */
+  .comparison-table td a.btn,
+  table td a.btn {
+    display: inline-block !important;
+    width: auto !important;
+    padding: 8px 16px !important;
+    min-height: 36px !important;
+  }
+
+  .sticky-cta-bar, #msct {
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .sticky-cta-bar a, .sticky-cta-bar button,
+  #msct a.msct-btn {
+    width: auto !important;
+    text-align: center !important;
+    white-space: normal !important;
+    font-size: 14px !important;
+  }
+
+  .cta-card, .winner-card, .top-pick-card, .cta-box, .pick-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 20px 16px !important;
+    box-sizing: border-box !important;
+  }
+  .cta-card a, .winner-card a,
+  .top-pick-card a, .top-pick-card button,
+  .cta-box a, .cta-box .btn {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+  }
+}
