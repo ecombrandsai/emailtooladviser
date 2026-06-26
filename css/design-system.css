@@ -1604,3 +1604,34 @@ figure.article-graphic img, figure.hero-image img {
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
+
+
+/* ====================================================================
+   v9 cleanup patch — Issue 1 (article body centering on no-rail pages)
+   ====================================================================
+
+   The desktop rule .article-body { margin: 0 } in the v6 article template
+   only makes sense when .article-body is a grid child of .article-wrap
+   with a sidebar. Satellite articles (and any page without article-wrap)
+   ended up left/right-shifted because margin:0 leaves them anchored to
+   one edge of the available 1052px main content area.
+
+   Default: center any .article-body as a 760px column.
+   Exception: when inside .article-wrap WITH a real article-sidebar,
+   restore margin:0 so the grid handles positioning.
+   ==================================================================== */
+@media (min-width: 1024px) {
+  /* Default: ALL .article-body elements center as 760px columns. */
+  .article-body, .article-content {
+    max-width: 760px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  /* Exception: when inside a 2-column grid with a populated sidebar,
+     let the grid handle positioning. */
+  .article-wrap:has(> aside.article-sidebar) > .article-body,
+  .article-layout:has(> aside.article-sidebar) > .article-body {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
