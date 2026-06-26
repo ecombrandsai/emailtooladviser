@@ -459,3 +459,38 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+# graphics-engine hook (added by v6 deploy)
+# When a new article is generated, also render branded SVG graphics for it.
+# Falls back silently if graphics_engine isn't importable.
+def _render_graphics_for_article(article_meta, output_dir):
+    """article_meta: dict with at least 'slug','title','kind' keys. Returns
+    list of generated SVG filenames or [] on any failure."""
+    try:
+        import sys as _sys, importlib.util as _ilu
+        _here = __file__.rsplit('/',1)[0]
+        _sys.path.insert(0, _here)
+        import graphics_engine  # noqa: F401
+        from graphics_engine import cover_svg
+        import os
+        os.makedirs(output_dir, exist_ok=True)
+        accent = os.environ.get('SITE_ACCENT', '#2563eb')
+        brand  = os.environ.get('SITE_BRAND_NAME', 'EmailToolAdviser')
+        slug = article_meta.get('slug', 'article')
+        svg = cover_svg(
+            accent=accent, brand_name=brand,
+            eyebrow=article_meta.get('kind','article').upper(),
+            title=article_meta.get('title',''),
+            subtitle=article_meta.get('subtitle',''),
+            badge_text=article_meta.get('badge',''),
+            stat_value=article_meta.get('stat_value',''),
+            stat_label=article_meta.get('stat_label',''),
+        )
+        out = os.path.join(output_dir, f'{slug}-cover.svg')
+        with open(out, 'w', encoding='utf-8') as f:
+            f.write(svg)
+        return [out]
+    except Exception as exc:
+        print(f'  graphics-engine hook skipped: {exc}')
+        return []
