@@ -469,3 +469,40 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+# ------------------------------------------------------------------
+# Screenshot manifest for Constant Contact product pages.
+# Maps slug -> (source file, alt text, caption, target heading regex).
+# Used by future article generation: if the article slug starts with
+# "constant-contact-review", insert all 4 screenshots; if it matches
+# "constant-contact-vs-mailchimp", insert just the dashboard one.
+# Non-CC articles do not receive screenshots.
+CC_SCREENSHOTS = {
+    "constant-contact-dashboard": {
+        "alt":     "Constant Contact dashboard showing the send-your-first-email home screen.",
+        "caption": "Constant Contact's dashboard on a new account.",
+    },
+    "constant-contact-emails": {
+        "alt":     "Constant Contact email campaign builder with the template gallery.",
+        "caption": "The Constant Contact campaign and template builder.",
+    },
+    "constant-contact-growth-center": {
+        "alt":     "Constant Contact audience growth center showing signup forms.",
+        "caption": "Constant Contact's audience growth center for list building.",
+    },
+    "constant-contact-automation": {
+        "alt":     "Constant Contact automation builder showing pre-built welcome series.",
+        "caption": "Constant Contact's pre-built automation templates.",
+    },
+}
+
+CC_REVIEW_PLACEMENTS = [
+    ("constant-contact-dashboard",   r"<h2 id=\"what-is-constant-contact\"[^>]*>What Is Constant Contact\\?</h2>"),
+    ("constant-contact-emails",      r"<h3>Modern, on-brand template library</h3>"),
+    ("constant-contact-growth-center", r"<h2 id=\"setting-up-constant-contact-in-under-30-minutes\"[^>]*>Setting Up Constant Contact in Under 30 Minutes</h2>"),
+    ("constant-contact-automation",  r"<h3>Solid native automations</h3>"),
+]
+CC_MAILCHIMP_PLACEMENTS = [
+    ("constant-contact-dashboard", r"<h2 id=\"ease-of-use[^\"]*\"[^>]*>Ease of Use[^<]+</h2>"),
+]
