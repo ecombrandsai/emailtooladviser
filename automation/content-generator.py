@@ -384,7 +384,16 @@ def generate_one(cfg: dict, queue: dict, dry_run: bool, keyword_id: int | None) 
     research = research_for(kw)
     section = section_for(kw.get("type", "article"))
     slug = kw.get("suggested_slug") or slugify(kw["keyword"])
-    target_domain = kw.get("target_domain", cfg.get("core_domain", "emailtooladviser.com").replace("https://", ""))
+    # Domain selection — SATELLITE_DOMAIN env var wins over the keyword's target_domain.
+    # This guarantees that an article generated under a satellite repo ALWAYS uses
+    # the satellite's own domain in canonical/og:url/sitemap, even if the keyword
+    # queue is shared and a keyword's target_domain happens to point elsewhere.
+    satellite_env = os.environ.get("SATELLITE_DOMAIN")
+    target_domain = (
+        satellite_env
+        or kw.get("target_domain")
+        or cfg.get("core_domain", "emailtooladviser.com").replace("https://", "")
+    )
     site_url = f"https://{target_domain}"
     full_url = f"{site_url}/{section}/{slug}.html"
 
