@@ -1537,3 +1537,70 @@ figure.article-graphic img, figure.hero-image img {
 /* ====================================================================
    END PREMIUM v6 REBUILD
    ==================================================================== */
+
+
+/* ====================================================================
+   v8 cleanup patch — Issues 2, 6 (button text visibility, no-sidebar
+   centering)
+   ==================================================================== */
+
+/* FIX 2 — button text must always be readable on accent fill. The v6
+   article-body link styling (`.article-body a { color: var(--color-brand) }`)
+   was winning over `.btn { color: white }` due to equal specificity but
+   later cascade position. Force white text on every CTA/button-like link
+   inside article body. */
+.article-body a.btn, .article-body a.btn-lg, .article-body a.btn-primary,
+.article-body a.pick-cta, .article-body a.cta-box-btn, .article-body a.sidebar-pick-btn,
+.cta-box a, .cta-box .btn,
+.winner-card a, .top-pick-card a,
+.article-body a[href*="constantcontact"],
+.article-body a[href*="join-now"] {
+  color: white !important;
+  text-decoration: none !important;
+}
+.article-body a.btn:hover, .cta-box a:hover {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+/* FIX 6 — when there's no sidebar (or it's empty), the article column
+   must center, not left-justify with an empty 320px gap. */
+@media (min-width: 1024px) {
+  /* Modern browsers: :has() drops grid when no aside */
+  .article-wrap:not(:has(> aside)),
+  .article-wrap:has(> aside:empty) {
+    display: block !important;
+  }
+  .article-wrap:not(:has(> aside)) > .article-body,
+  .article-wrap:has(> aside:empty) > .article-body {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 760px !important;
+  }
+  /* Even WITH a short aside, keep body horizontally centered within
+     its grid track */
+  .article-wrap .article-body {
+    justify-self: center;
+  }
+}
+
+/* FIX 1 fallback — when a card has no <img>, use accent gradient block
+   with category label (for any future article that fails the body-graphic
+   lookup) */
+.article-card-thumb-fallback {
+  width: 100%;
+  height: 180px;
+  background:
+    linear-gradient(135deg,
+      color-mix(in srgb, var(--color-brand) 18%, white),
+      color-mix(in srgb, var(--color-brand) 8%, white));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-brand);
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}

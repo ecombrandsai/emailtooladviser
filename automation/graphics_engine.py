@@ -165,39 +165,57 @@ def data_svg(
     footnote: str = "EmailToolAdviser testing, 2026",
     value_axis_label: str = "",
 ) -> str:
+    """Horizontal bar chart with reserved left gutter for labels.
+    Value labels sit INSIDE wide bars (white, right-aligned) or just
+    past the bar end (dark, left-aligned) for short bars."""
     accent_soft = lighten(accent, 0.88)
-    bar_h   = 36
-    bar_gap = 16
-    label_w = 200
-    bar_x   = 220
-    bar_w_max = 460
-    top     = 110
-    rows_h  = len(rows) * (bar_h + bar_gap)
-    total_h = top + rows_h + 70
+    LEFT_GUTTER = 180
+    GAP         = 16
+    RIGHT_PAD   = 56
+    bar_h       = 32
+    bar_gap     = 20
+    top         = 110
+    SVG_W       = 800
+    rows_h      = len(rows) * (bar_h + bar_gap)
+    total_h     = top + rows_h + 70
 
+    bar_max = SVG_W - LEFT_GUTTER - GAP - RIGHT_PAD
     vmax = max(r.value for r in rows) if rows else 1
+
     rows_svg = ""
     for i, r in enumerate(rows):
         y = top + i * (bar_h + bar_gap)
-        w = max(8, int(bar_w_max * (r.value / vmax)))
+        w = max(8, int(bar_max * (r.value / vmax)))
         fill = accent if r.highlight else accent_soft
-        text_fill = WHITE if r.highlight else INK
+        bar_x = LEFT_GUTTER + GAP
+        if w >= 60:
+            value_x = bar_x + w - 10
+            value_anchor = "end"
+            value_fill = "#ffffff" if r.highlight else "#0f172a"
+        else:
+            value_x = bar_x + w + 8
+            value_anchor = "start"
+            value_fill = "#0f172a"
         rows_svg += (
-            f'<text x="{label_w}" y="{y+24}" class="sans" font-size="14" fill="{INK_SOFT}" text-anchor="end" font-weight="600">{esc(r.label)}</text>'
-            f'<rect x="{bar_x}" y="{y}" rx="6" ry="6" width="{w}" height="{bar_h}" fill="{fill}"/>'
-            f'<text x="{bar_x + w - 12}" y="{y+24}" class="sans" font-size="13" fill="{text_fill}" text-anchor="end" font-weight="700">{esc(r.display or str(r.value))}</text>'
+            f'<text x="{LEFT_GUTTER - 10}" y="{int(y + bar_h/2 + 4)}" '
+            f'class="sans" font-size="13" fill="{INK_SOFT}" '
+            f'text-anchor="end" font-weight="600">{esc(r.label)}</text>'
+            f'<rect x="{bar_x}" y="{y}" rx="6" ry="6" '
+            f'width="{w}" height="{bar_h}" fill="{fill}"/>'
+            f'<text x="{value_x}" y="{int(y + bar_h/2 + 4)}" '
+            f'class="sans" font-size="13" fill="{value_fill}" '
+            f'text-anchor="{value_anchor}" font-weight="700">{esc(r.display or str(r.value))}</text>'
         )
 
-    return f"""<svg viewBox="0 0 800 {total_h}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img">
+    return f"""<svg viewBox="0 0 {SVG_W} {total_h}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet" role="img" style="width:100%;height:auto;">
 {FONT_STYLE}
-<rect width="800" height="{total_h}" fill="{WHITE}"/>
-<rect x="20" y="20" rx="14" ry="14" width="760" height="{total_h-40}" fill="{WHITE}" stroke="{BORDER}" stroke-width="1"/>
-<text x="40" y="60" class="serif" font-size="26" fill="{INK}">{esc(title)}</text>
-<text x="40" y="85" class="sans" font-size="13" fill="{MUTED}">{esc(subtitle)}</text>
+<rect width="{SVG_W}" height="{total_h}" fill="#ffffff"/>
+<rect x="20" y="20" rx="14" ry="14" width="{SVG_W - 40}" height="{total_h-40}" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+<text x="40" y="60" class="serif" font-size="26" fill="#0f172a">{esc(title)}</text>
+<text x="40" y="85" class="sans" font-size="13" fill="#64748b">{esc(subtitle)}</text>
 {rows_svg}
-<text x="40" y="{total_h-28}" class="sans" font-size="11" fill="{MUTED}">Source: {esc(footnote)}</text>
+<text x="40" y="{total_h-28}" class="sans" font-size="11" fill="#64748b">Source: {esc(footnote)}</text>
 </svg>"""
-
 
 # ============================================================
 # 4. SCORE VISUAL (editorial scorecard) — 720×640
