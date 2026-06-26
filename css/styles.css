@@ -532,3 +532,125 @@ footer, .site-footer { background: var(--bg-dark); color: white; padding: 0; mar
 .comparison-table[style*="111827"] td,
 .comparison-table[style*="111827"] th,
 .dark-table td, .dark-table th { color: #ffffff !important; }
+
+
+/* ========================================================================
+   v4 patch — Bug 2 (mobile overflow) + Bug 3 (force mobile stacked cards
+   stronger than v3, including overriding .comparison-scroll wrapper)
+   ======================================================================== */
+
+/* Bug 2 — kill any horizontal overflow ---------------------------------- */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.article-body, .article-content, main, article {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Bug 3 — force every table into stacked-card layout on mobile --------- */
+@media (max-width: 768px) {
+  .comparison-scroll,
+  .comparison-wrap {
+    overflow-x: visible !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border: 0 !important;
+    margin: 1.5rem 0 !important;
+  }
+  table,
+  .comparison-table {
+    display: block !important;
+    width: 100% !important;
+    overflow-x: visible !important;
+    border-collapse: collapse;
+    min-width: 0 !important;
+  }
+  table thead,
+  .comparison-table thead { display: none !important; }
+  table tbody,
+  .comparison-table tbody {
+    display: block !important;
+    width: 100% !important;
+  }
+  table tr,
+  .comparison-table tr {
+    display: block !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    padding: 16px !important;
+    margin-bottom: 12px !important;
+    width: 100% !important;
+    background: #fff !important;
+  }
+  /* TOP PICK card variant */
+  table tr.winner,
+  table tr.winner-row,
+  .comparison-table tr.winner,
+  .comparison-table tr.winner-row {
+    border-color: #22c55e !important;
+    padding-top: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  table tr.winner::before,
+  table tr.winner-row::before,
+  .comparison-table tr.winner::before,
+  .comparison-table tr.winner-row::before {
+    content: "TOP PICK";
+    display: block;
+    background: #22c55e;
+    color: white;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    padding: 4px 0;
+    text-align: center;
+    border-radius: 6px 6px 0 0;
+    font-weight: 700;
+  }
+  table tr.winner td,
+  table tr.winner-row td,
+  .comparison-table tr.winner td,
+  .comparison-table tr.winner-row td { padding-left: 16px !important; padding-right: 16px !important; }
+  table td,
+  .comparison-table td {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    padding: 6px 0 !important;
+    border: 0 !important;
+    font-size: 14px !important;
+    width: 100% !important;
+    text-align: right !important;
+  }
+  table td::before,
+  .comparison-table td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    color: #64748b;
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-right: 12px;
+    min-width: 80px;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  /* First cell gets no pseudo-label and a bigger tool name */
+  table td:first-child,
+  .comparison-table td:first-child {
+    font-size: 16px !important;
+    font-weight: 800 !important;
+    color: #0f172a !important;
+    margin-bottom: 8px !important;
+    text-align: left !important;
+    justify-content: flex-start !important;
+  }
+  table td:first-child::before,
+  .comparison-table td:first-child::before { content: "" !important; min-width: 0 !important; margin: 0 !important; }
+}
