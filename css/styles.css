@@ -1096,3 +1096,138 @@ body > .disclosure-popup.active,
   }
   .disclosure-popup .disclosure-heading { font-size: 19px !important; }
 }
+
+
+/* ========================================================================
+   v8 patch — mobile polish: fix logo sizing, comparison card layout,
+                              header overflow
+   ======================================================================== */
+
+/* ---- Fix A: logo images keep their intended size ------------------------
+   v6 set `img { height: auto !important }` for hero photos, but that
+   un-anchored the wordmark/badge SVGs in comparison-table cells. Pin
+   /assets/logos/* to a tight box so they stay 24px tall regardless. */
+img[src*="/assets/logos/"] {
+  height: auto !important;
+  max-height: 24px !important;
+  width: auto !important;
+  max-width: 90px !important;
+  object-fit: contain !important;
+}
+.comparison-table img[src*="/assets/logos/"],
+table img[src*="/assets/logos/"] {
+  max-height: 22px !important;
+  vertical-align: middle !important;
+  display: inline-block !important;
+}
+
+/* ---- Mobile polish ----------------------------------------------------- */
+@media (max-width: 768px) {
+
+  /* ---- Fix B: header CTA — too long on mobile, hide; sticky CTA bar
+       handles mobile conversion ---------------------------------------- */
+  .header-btn { display: none !important; }
+  .header-inner { gap: 1rem !important; justify-content: space-between !important; }
+
+  /* ---- Fix C: comparison-card tool row tightening ------------------- */
+  /* Tool column (2nd) gets wrap + smaller label gap so logo + name fit */
+  table tr > td:nth-child(2),
+  .comparison-table tr > td:nth-child(2) {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    align-items: center !important;
+  }
+  /* Shrink the label pseudo on all cards so the value side has room */
+  table tr > td:not(:first-child)::before,
+  .comparison-table tr > td:not(:first-child)::before {
+    min-width: 68px !important;
+    font-size: 11px !important;
+  }
+  /* Tighter row padding inside each card */
+  table tr, .comparison-table tr {
+    padding: 14px !important;
+  }
+  table tr > td:not(:first-child),
+  .comparison-table tr > td:not(:first-child) {
+    padding: 5px 0 !important;
+    font-size: 13.5px !important;
+    line-height: 1.45 !important;
+  }
+  table tr > td:not(:first-child) strong,
+  .comparison-table tr > td:not(:first-child) strong {
+    font-size: 14px !important;
+  }
+  /* Tool-name <strong> (and bare tool name text) gets flex priority so it
+     wraps cleanly instead of overflowing */
+  .comparison-table tr > td:nth-child(2),
+  table tr > td:nth-child(2) {
+    text-align: right !important;
+  }
+
+  /* TOP PICK banner — tighten */
+  table tr.winner::before, table tr.winner-row::before,
+  .comparison-table tr.winner::before, .comparison-table tr.winner-row::before {
+    margin-bottom: 10px !important;
+  }
+  /* CC PNG logo + gold-star stay inline, on top of "Constant Contact" text */
+  .comparison-table tr.winner > td:nth-child(2) > svg,
+  .comparison-table tr.winner > td:nth-child(2) > img,
+  table tr.winner > td:nth-child(2) > svg,
+  table tr.winner > td:nth-child(2) > img {
+    vertical-align: middle !important;
+    display: inline-block !important;
+  }
+
+  /* ---- Comparison cards: keep <strong> tool name on one line ------- */
+  .comparison-table td strong, table td strong {
+    white-space: nowrap !important;
+  }
+
+  /* ---- Body typography polish ------------------------------------- */
+  .article-body p, .container-narrow > p, main p {
+    font-size: 16px !important;
+    line-height: 1.65 !important;
+  }
+  .article-body h1, main h1 { font-size: 26px !important; line-height: 1.18 !important; }
+  .article-body h2, main h2 { font-size: 21px !important; line-height: 1.22 !important; margin-top: 1.5em !important; }
+  .article-body h3, main h3 { font-size: 18px !important; line-height: 1.25 !important; }
+
+  /* ---- CTA box tightening on mobile -------------------------------- */
+  .cta-box {
+    padding: 22px 18px !important;
+    margin: 20px 0 !important;
+  }
+  .cta-box h3 {
+    font-size: 19px !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+    margin-bottom: 10px !important;
+  }
+  .cta-box p.price-justify {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+    text-align: center !important;
+  }
+
+  /* ---- Callout boxes — keep icon + text inline, tighter padding --- */
+  .callout {
+    padding: 14px 16px !important;
+    margin: 22px 0 !important;
+  }
+  .callout p { font-size: 14px !important; line-height: 1.55 !important; }
+}
+
+/* ---- Mid-mobile (≤480px) — extra tightening -------------------------- */
+@media (max-width: 480px) {
+  table tr, .comparison-table tr { padding: 12px !important; }
+  table tr > td:not(:first-child)::before,
+  .comparison-table tr > td:not(:first-child)::before {
+    min-width: 58px !important;
+    font-size: 10.5px !important;
+  }
+  .article-body h1, main h1 { font-size: 23px !important; }
+  .container, .container-narrow, main, article, section, .content {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+}
