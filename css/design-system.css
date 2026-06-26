@@ -1688,3 +1688,26 @@ figure.article-graphic img, figure.hero-image img {
   .screenshot-frame-chrome { padding: 7px 12px; }
   .screenshot-frame-chrome span { width: 9px; height: 9px; }
 }
+
+
+/* ====================================================================
+   v10 patch — mobile logo never truncates
+   Brand names like "BestEmailToolReviews" (20 char) and "Email Marketing
+   Rated" (21 char) overflowed the 160px max-width + 18px font in the base
+   .logo rule. Scale down + widen + drop ellipsis so full name is always
+   visible on every mobile width.
+   ==================================================================== */
+.logo, .site-logo {
+  font-size: clamp(13px, 4.3vw, 18px) !important;
+  max-width: 240px !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  white-space: nowrap !important;
+}
+
+@media (min-width: 1024px) {
+  .logo, .site-logo {
+    font-size: 22px !important;
+    max-width: none !important;
+  }
+}
