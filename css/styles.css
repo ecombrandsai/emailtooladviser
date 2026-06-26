@@ -394,3 +394,52 @@ footer, .site-footer { background: var(--bg-dark); color: white; padding: 0; mar
 .badge { display: inline-block; padding: .2rem .6rem; background: var(--accent-light); color: var(--accent); font-size: .75rem; font-weight: 600; border-radius: 999px; text-transform: uppercase; letter-spacing: .05em; }
 .badge.warn { background: #fef3c7; color: #b45309; }
 .badge.green { background: #d1fae5; color: var(--green); }
+
+
+/* ========================================================================
+   Mobile fixes (≤768px and ≤480px)
+   ======================================================================== */
+@media (max-width: 768px) {
+  .stat-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+  .stat-card { padding: 1.25rem; }
+  .stat-number { font-size: 1.875rem; }
+  .comparison-wrap { margin: 1.5rem -1rem; border-radius: 0; }
+  .comparison-table { font-size: 0.8rem; }
+  .comparison-table th { padding: 0.625rem 0.75rem; }
+  .comparison-table td { padding: 0.625rem 0.75rem; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .pros-cons-grid, .pros-cons { grid-template-columns: 1fr; }
+  .bar-chart { padding: 1.25rem; }
+  .header-btn { font-size: 0.75rem; padding: 8px 12px; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .featured-pick, .featured-pick-box, .top-pick { padding: 1.5rem; }
+  .featured-pick-top { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  .pick-features, .top-pick .features { grid-template-columns: 1fr; }
+  .pick-cta { width: 100%; justify-content: center; padding: 14px 20px; }
+  .cta-box { padding: 1.5rem; }
+  .cta-box-btn { width: 100%; justify-content: center; }
+  .winner-card, .verdict { padding: 1.5rem; }
+  .winner-card-btn, .verdict .btn { width: 100%; justify-content: center; }
+  .vs-header { gap: 0.75rem; }
+  .hero-image-wrap img, .hero-image img { max-height: 280px; }
+  .article-header h1 { font-size: 1.625rem; }
+  .home-hero, .hero { padding: 3rem 0 2.5rem; }
+  .home-hero h1, .hero h1 { font-size: 2rem; }
+  .home-hero-ctas { flex-direction: column; align-items: stretch; }
+  .hero-btn-primary { justify-content: center; padding: 14px 20px; }
+  .footer-main, .site-footer .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .score-label { width: 100px; font-size: 0.8rem; }
+  .index-dual-cta { flex-direction: column; }
+  .btn-primary, .btn-secondary, .btn, .btn-outline { width: 100%; justify-content: center; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 1rem; }
+  .header-inner { padding: 0 1rem; }
+  .article-wrap { padding: 0 1rem 3rem; }
+  .home-hero h1, .hero h1 { font-size: 1.75rem; }
+  .footer-main, .site-footer .footer-grid { grid-template-columns: 1fr; }
+  .article-header h1 { font-size: 1.5rem; }
+  .featured-pick-top { gap: 0.625rem; }
+  .pick-logo { width: 44px; height: 44px; font-size: 0.875rem; }
+  .pick-name, .top-pick h2 { font-size: 1.25rem; }
+}
