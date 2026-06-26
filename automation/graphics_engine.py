@@ -57,10 +57,9 @@ def lighten(hex6: str, frac: float = 0.85) -> str:
 
 FONT_STYLE = """
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800;900&family=Inter:wght@400;500;600;700;800&display=swap');
-  .serif  { font-family: 'Playfair Display', Georgia, 'Times New Roman', serif; font-weight: 800; }
-  .sans   { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
-  .label  { font-family: 'Inter', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+  .serif  { font-family: Georgia, 'Times New Roman', 'Playfair Display', serif; font-weight: 800; }
+  .sans   { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+  .label  { font-family: system-ui, sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
 </style>
 """.strip()
 
