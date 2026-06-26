@@ -267,18 +267,32 @@ strong, b { color: var(--color-ink); font-weight: 700; }
 }
 
 /* ====================================================================
-   ARTICLE BODY  (mobile = single column; desktop = body + sidebar)
+   ARTICLE LAYOUT — unified for article, comparison, AND review pages.
+   Mobile = single centered reading column. Desktop = grid with sidebar,
+   columns centered as a group inside a 1100px outer wrapper. No
+   lopsided left gutter — body always balanced or grid-centered.
    ==================================================================== */
 main {
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 0 16px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
 }
-.article-wrap { display: block; }
-.article-body, .container-narrow {
-  max-width: var(--maxw-article);
-  margin: 0 auto;
+.article-wrap, .article-layout {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  box-sizing: border-box;
+}
+.article-body, .article-content, .container-narrow {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 0;
+  box-sizing: border-box;
 }
 .article-meta, .byline {
   font-size: 13px;
@@ -288,9 +302,31 @@ main {
 }
 
 @media (min-width: 1024px) {
-  main { padding: 0 24px; }
-  .article-wrap { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 48px; align-items: start; }
-  .article-body { padding: 0; max-width: var(--maxw-article); margin: 0; }
+  main { padding-left: 24px; padding-right: 24px; }
+  .article-wrap, .article-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 760px) 320px;
+    gap: 40px;
+    justify-content: center;
+    align-items: start;
+  }
+  .article-body, .article-content {
+    max-width: 760px;
+    margin: 0;
+  }
+  /* No-sidebar fallback — when .article-wrap has no <aside> child,
+     fall back to the centered reading column. Uses :has() (modern
+     browsers); for older browsers the grid would still render with
+     a 320px empty space, which is acceptable. */
+  .article-wrap:not(:has(aside)),
+  .article-layout:not(:has(aside)) {
+    display: block;
+  }
+  .article-wrap:not(:has(aside)) > .article-body,
+  .article-layout:not(:has(aside)) > .article-body {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 /* ====================================================================
