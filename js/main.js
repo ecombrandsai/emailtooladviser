@@ -97,3 +97,35 @@
   var closeX = popup.querySelector('.disclosure-close-x');
   if (closeX) closeX.addEventListener('click', close);
 })();
+
+
+// v6 — TOC scroll-spy: highlight current section's sidebar-toc-link
+(function () {
+  var links = Array.prototype.slice.call(
+    document.querySelectorAll('.sidebar-toc-link')
+  );
+  if (!links.length) return;
+  // Map each link to its target H2
+  var sections = links.map(function (a) {
+    var href = a.getAttribute('href') || '';
+    if (!href.startsWith('#')) return null;
+    var el = document.getElementById(href.slice(1));
+    return el ? { link: a, el: el } : null;
+  }).filter(Boolean);
+  if (!sections.length) return;
+
+  function update() {
+    var scrollY = window.scrollY + 120;
+    var current = sections[0].link;
+    for (var i = 0; i < sections.length; i++) {
+      if (sections[i].el.offsetTop <= scrollY) {
+        current = sections[i].link;
+      }
+    }
+    links.forEach(function (a) {
+      a.classList.toggle('is-current', a === current);
+    });
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
