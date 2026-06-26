@@ -366,14 +366,7 @@ def render_all_for_article(slug: str, art: dict, accent: str, brand: str) -> dic
             verdict=s.get("verdict",""),
         )
 
-    if "pricing" in art:
-        p = art["pricing"]
-        out[f"{slug}-pricing.svg"] = pricing_svg(
-            accent=accent,
-            tool_name=p["tool"],
-            tiers=p["tiers"],
-        )
-
+    # pricing graphic emission disabled
     return out
 
 
