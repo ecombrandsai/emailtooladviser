@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>EmailToolAdviser Network Command Center</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --card-2: #243043;
+      --border: #334155;
+      --text: #f1f5f9;
+      --text-soft: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent: #2563eb;
+      --accent-soft: #1e3a8a;
+      --success: #10b981;
+      --danger: #ef4444;
+      --warn: #f59e0b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .container { max-width: 1440px; margin: 0 auto; padding: 1.5rem 2rem; }
+    .header-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--card);
+      position: sticky; top: 0; z-index: 10;
+    }
+    .header-bar h1 {
+      margin: 0; font-size: 1.25rem; font-weight: 700;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .pulse {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--success);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    .header-meta {
+      display: flex; align-items: center; gap: 1.5rem;
+      color: var(--text-muted); font-size: 0.875rem;
+    }
+    button.refresh {
+      background: var(--accent); color: white; border: 0;
+      padding: 0.5rem 1rem; border-radius: 6px;
+      font-weight: 600; cursor: pointer;
+      font-size: 0.875rem;
+    }
+    button.refresh:hover { background: #1d4ed8; }
+    h2 {
+      font-size: 0.75rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin: 2rem 0 1rem;
+    }
+    .card-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+    .card .label {
+      font-size: 0.75rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .card .value {
+      font-size: 2rem; font-weight: 700; color: var(--text);
+      line-height: 1.1;
+    }
+    .card .delta {
+      font-size: 0.875rem; margin-top: 0.5rem;
+      display: flex; align-items: center; gap: 0.25rem;
+    }
+    .delta.up { color: var(--success); }
+    .delta.down { color: var(--danger); }
+    .delta.neutral { color: var(--text-muted); }
+    table {
+      width: 100%; border-collapse: collapse;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; overflow: hidden;
+      font-size: 0.875rem;
+    }
+    th, td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    th {
+      background: var(--card-2);
+      font-size: 0.7rem; text-transform: uppercase;
+      letter-spacing: 0.06em; color: var(--text-muted);
+      font-weight: 700;
+    }
+    tbody tr:last-child td { border-bottom: 0; }
+    tbody tr:hover { background: var(--card-2); }
+    .status {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      font-size: 0.7rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    .status.good { background: rgba(16, 185, 129, 0.15); color: var(--success); }
+    .status.warn { background: rgba(245, 158, 11, 0.15); color: var(--warn); }
+    .status.bad  { background: rgba(239, 68, 68, 0.15); color: var(--danger); }
+    .alerts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    .alert {
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      border-left: 4px solid;
+      background: var(--card);
+      border: 1px solid var(--border);
+    }
+    .alert.success { border-left-color: var(--success); }
+    .alert.warn { border-left-color: var(--warn); }
+    .alert.danger { border-left-color: var(--danger); }
+    .alert.info { border-left-color: var(--accent); }
+    .alert .alert-title {
+      font-weight: 700; margin-bottom: 0.25rem;
+      font-size: 0.875rem;
+    }
+    .alert .alert-body {
+      font-size: 0.8125rem; color: var(--text-soft);
+    }
+    .actions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.75rem;
+    }
+    .action-btn {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: left;
+      cursor: pointer;
+      font-family: inherit;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .action-btn:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+    .action-btn .action-label {
+      font-weight: 700; font-size: 0.9375rem;
+      display: block;
+    }
+    .action-btn .action-sub {
+      color: var(--text-muted);
+      font-size: 0.8125rem;
+      margin-top: 0.25rem;
+      display: block;
+    }
+    .last-updated {
+      font-size: 0.75rem; color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <header class="header-bar">
+    <h1>
+      <span class="pulse"></span>
+      EmailToolAdviser Network Command Center
+    </h1>
+    <div class="header-meta">
+      <div id="clock">—</div>
+      <div class="last-updated">Last updated: <span id="last-updated">—</span></div>
+      <button class="refresh" id="refresh-btn">Refresh now</button>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <h2>Revenue</h2>
+    <div class="card-row" id="revenue-cards"></div>
+
+    <h2>Traffic — all 5 domains combined</h2>
+    <div class="card-row" id="traffic-cards"></div>
+
+    <h2>Content pipeline</h2>
+    <div class="card-row" id="content-cards"></div>
+
+    <h2>Rankings overview</h2>
+    <div class="card-row" id="rankings-cards"></div>
+
+    <h2>5-domain breakdown</h2>
+    <table id="domain-table">
+      <thead>
+        <tr>
+          <th>Domain</th>
+          <th>Articles live</th>
+          <th>Monthly visitors</th>
+          <th>Keywords ranking</th>
+          <th>Revenue contribution</th>
+          <th>Health</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <h2>Top moving keywords this week</h2>
+    <table id="movers-table">
+      <thead>
+        <tr>
+          <th>Keyword</th>
+          <th>Previous</th>
+          <th>Current</th>
+          <th>Change</th>
+          <th>Domain</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <h2>Needs attention</h2>
+    <div class="alerts-grid" id="alerts"></div>
+
+    <h2>Quick actions</h2>
+    <div class="actions">
+      <button class="action-btn" onclick="alert('Triggers automation/content-generator.py via your CI runner.')">
+        <span class="action-label">Generate New Article</span>
+        <span class="action-sub">Trigger content-generator.py</span>
+      </button>
+      <button class="action-btn" onclick="alert('Opens automation/config.json for editing.')">
+        <span class="action-label">Update All CTAs</span>
+        <span class="action-sub">Edit /automation/config.json</span>
+      </button>
+      <button class="action-btn" onclick="alert('Triggers automation/rank-tracker.py.')">
+        <span class="action-label">Refresh Rankings</span>
+        <span class="action-sub">Pull latest GSC data</span>
+      </button>
+      <button class="action-btn" onclick="alert('Triggers automation/search-console.py with --action submit-sitemap.')">
+        <span class="action-label">Submit to Google</span>
+        <span class="action-sub">Index new URLs</span>
+      </button>
+      <button class="action-btn" onclick="window.open('/reports/weekly-report.html', '_blank')">
+        <span class="action-label">View Weekly Report</span>
+        <span class="action-sub">Open latest report</span>
+      </button>
+    </div>
+
+  </div>
+
+<script>
+  const REFRESH_INTERVAL_MS = 60000;
+  const fmt$ = (n) => '$' + (n || 0).toLocaleString();
+  const fmt = (n) => (n || 0).toLocaleString();
+  const fmtPct = (n) => (n >= 0 ? '+' : '') + (n || 0).toFixed(1) + '%';
+
+  function setClock() {
+    const d = new Date();
+    document.getElementById('clock').textContent = d.toLocaleString('en-US', {
+      month: 'short', day: 'numeric', year: 'numeric',
+      hour: 'numeric', minute: '2-digit', second: '2-digit'
+    });
+  }
+  setClock();
+  setInterval(setClock, 1000);
+
+  async function jget(path) {
+    try {
+      const r = await fetch(path + '?t=' + Date.now());
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return await r.json();
+    } catch (e) {
+      console.warn('Failed to load', path, e);
+      return null;
+    }
+  }
+
+  function card(label, value, delta) {
+    const klass = delta && delta.dir === 'up' ? 'up'
+                : delta && delta.dir === 'down' ? 'down'
+                : 'neutral';
+    const arrow = klass === 'up' ? '▲' : klass === 'down' ? '▼' : '—';
+    return `<div class="card">
+      <div class="label">${label}</div>
+      <div class="value">${value}</div>
+      ${delta ? `<div class="delta ${klass}">${arrow} ${delta.text}</div>` : ''}
+    </div>`;
+  }
+
+  async function loadAll() {
+    const [rev, traf, cont, rank, queue, log] = await Promise.all([
+      jget('/data/revenue.json'),
+      jget('/data/traffic.json'),
+      jget('/data/content.json'),
+      jget('/data/rankings.json'),
+      jget('/automation/keyword-queue.json'),
+      jget('/automation/publish-log.json')
+    ]);
+
+    // Revenue cards
+    if (rev) {
+      const html = [
+        card('This month revenue', fmt$(rev.this_month_revenue),
+             { dir: rev.mom_growth_pct >= 0 ? 'up' : 'down',
+               text: fmtPct(rev.mom_growth_pct) + ' MoM' }),
+        card('Last month revenue', fmt$(rev.last_month_revenue)),
+        card('Month-over-month growth', fmtPct(rev.mom_growth_pct)),
+        card('YTD revenue', fmt$(rev.ytd_revenue)),
+        card('Projected next month', fmt$(rev.projected_next_month))
+      ].join('');
+      document.getElementById('revenue-cards').innerHTML = html;
+    }
+
+    // Traffic cards
+    if (traf) {
+      const t = traf.totals || {};
+      const html = [
+        card('Today', fmt(t.today)),
+        card('This week', fmt(t.this_week)),
+        card('This month', fmt(t.this_month)),
+        card('Week-over-week growth', fmtPct(t.wow_growth_pct),
+             { dir: t.wow_growth_pct >= 0 ? 'up' : 'down',
+               text: fmtPct(t.wow_growth_pct) })
+      ].join('');
+      document.getElementById('traffic-cards').innerHTML = html;
+    }
+
+    // Content cards
+    if (cont && queue) {
+      const totals = cont.totals || {};
+      const queueLen = (queue.keywords || []).filter(k => k.status === 'unpublished').length;
+      const nextPublish = Object.values(cont.domains || {})
+        .map(d => d.next_scheduled_publish).filter(Boolean).sort()[0];
+      const html = [
+        card('Total articles live', fmt(totals.articles_live)),
+        card('Published this week', fmt(totals.articles_published_this_week)),
+        card('Articles in queue', fmt(queueLen)),
+        card('Days of content queued', fmt(totals.days_of_content_queued_at_current_pace)),
+        card('Next scheduled', nextPublish ? new Date(nextPublish).toLocaleString() : '—')
+      ].join('');
+      document.getElementById('content-cards').innerHTML = html;
+    }
+
+    // Rankings cards
+    if (rank) {
+      const s = rank.summary || {};
+      const html = [
+        card('Top 3', fmt(s.top_3)),
+        card('Top 10', fmt(s.top_10)),
+        card('Top 100', fmt(s.top_100)),
+        card('New this week', fmt(s.new_this_week)),
+        card('Positions gained', fmt(s.positions_gained),
+             { dir: 'up', text: 'this week' }),
+        card('Positions lost', fmt(s.positions_lost),
+             { dir: 'down', text: 'this week' })
+      ].join('');
+      document.getElementById('rankings-cards').innerHTML = html;
+    }
+
+    // Domain table
+    if (cont && traf && rev) {
+      const rows = Object.keys(cont.domains || {}).map(domain => {
+        const c = cont.domains[domain] || {};
+        const t = (traf.domains || {})[domain] || {};
+        const r = (rev.by_domain || {})[domain] || {};
+        // simple health: live articles >0 = good, ==0 = warn
+        const health = c.articles_live > 0
+          ? '<span class="status good">Healthy</span>'
+          : '<span class="status warn">No content yet</span>';
+        return `<tr>
+          <td><strong>${domain}</strong></td>
+          <td>${fmt(c.articles_live)}</td>
+          <td>${fmt(t.this_month)}</td>
+          <td>—</td>
+          <td>${fmt$(r.revenue)}</td>
+          <td>${health}</td>
+        </tr>`;
+      }).join('');
+      document.querySelector('#domain-table tbody').innerHTML = rows
+        || '<tr><td colspan="6" style="color:var(--text-muted)">No data yet</td></tr>';
+    }
+
+    // Movers table
+    if (rank && rank.movers_up) {
+      const rows = (rank.movers_up || []).slice(0, 10).map(m => `
+        <tr>
+          <td>${m.keyword}</td>
+          <td>${m.previous_position}</td>
+          <td><strong>${m.current_position}</strong></td>
+          <td><span class="status good">▲ ${m.change}</span></td>
+          <td>${m.domain || '—'}</td>
+        </tr>
+      `).join('');
+      document.querySelector('#movers-table tbody').innerHTML = rows
+        || '<tr><td colspan="5" style="color:var(--text-muted)">No movers this week — check back after the next rank-tracker.py run</td></tr>';
+    }
+
+    // Alerts
+    const alerts = [];
+    if (rank && rank.movers_down && rank.movers_down.length > 0) {
+      rank.movers_down.slice(0, 3).forEach(m => alerts.push({
+        type: 'warn',
+        title: 'Ranking drop: ' + m.keyword,
+        body: m.previous_position + ' → ' + m.current_position + ' on ' + (m.domain || 'unknown domain')
+      }));
+    }
+    if (rank && rank.new_entries && rank.new_entries.length > 0) {
+      alerts.push({
+        type: 'success',
+        title: rank.new_entries.length + ' new keywords ranking',
+        body: 'New entries in top 100 this week. Open the weekly report for the full list.'
+      });
+    }
+    if (cont && cont.totals && cont.totals.days_of_content_queued_at_current_pace < 3) {
+      alerts.push({
+        type: 'warn',
+        title: 'Content queue running low',
+        body: 'Less than 3 days of content queued. Run content-generator.py or add keywords to the queue.'
+      });
+    }
+    if (alerts.length === 0) {
+      alerts.push({
+        type: 'info',
+        title: 'All systems healthy',
+        body: 'No alerts. Last full sweep completed at ' + new Date().toLocaleTimeString() + '.'
+      });
+    }
+    document.getElementById('alerts').innerHTML = alerts.map(a => `
+      <div class="alert ${a.type === 'success' ? 'success' : a.type === 'warn' ? 'warn' : a.type === 'danger' ? 'danger' : 'info'}">
+        <div class="alert-title">${a.title}</div>
+        <div class="alert-body">${a.body}</div>
+      </div>
+    `).join('');
+
+    document.getElementById('last-updated').textContent = new Date().toLocaleTimeString();
+  }
+
+  document.getElementById('refresh-btn').addEventListener('click', loadAll);
+  loadAll();
+  setInterval(loadAll, REFRESH_INTERVAL_MS);
+</script>
+</body>
+</html>

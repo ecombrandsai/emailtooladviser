@@ -1,0 +1,76 @@
+name: Daily Content Pipeline
+
+on:
+  schedule:
+    # 06:00 UTC daily
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    inputs:
+      count:
+        description: 'Number of articles to generate this run'
+        required: false
+        default: '3'
+
+permissions:
+  contents: write
+
+jobs:
+  generate-content:
+    runs-on: ubuntu-latest
+    name: Generate and commit 3 articles
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install anthropic requests google-api-python-client google-auth
+
+      - name: Generate articles
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          COUNT="${{ github.event.inputs.count || '3' }}"
+          python3 automation/content-generator.py --count "$COUNT"
+
+      - name: Rebuild sitemap from disk
+        run: python3 automation/sitemap-generator.py --domain emailtooladviser.com
+
+      - name: Commit and push new content
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "EmailToolAdviser Content Bot"
+          git add articles/ comparisons/ reviews/ automation/keyword-queue.json automation/publish-log.json sitemap.xml
+          if git diff --cached --quiet; then
+            echo "No new content to commit."
+            exit 0
+          fi
+          git commit -m "Auto-publish: new articles $(date -u +%Y-%m-%d)"
+          git push
+
+      - name: Submit to Google Search Console (optional)
+        if: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON != '' }}
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+        run: |
+          echo "$GSC_SERVICE_ACCOUNT_JSON" > automation/gsc-credentials.json
+          python3 automation/search-console.py --action submit-urls --limit 3 || true
+
+      - name: Refresh ranking snapshot (optional)
+        if: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON != '' }}
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+        run: |
+          # already written by submit step
+          python3 automation/rank-tracker.py --site "https://emailtooladviser.com/" || true
+          git add data/rankings.json reports/weekly-report.html || true
+          if ! git diff --cached --quiet; then
+            git commit -m "Auto: refresh rankings + weekly report"
+            git push
+          fi

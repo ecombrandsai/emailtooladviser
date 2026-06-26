@@ -1,0 +1,50 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  deployments: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Publish to Cloudflare Pages
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Rebuild sitemap from disk
+        run: python3 automation/sitemap-generator.py --domain emailtooladviser.com
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: emailtooladviser
+          directory: .
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Ping Google with updated sitemap
+        run: |
+          curl -fsS "https://www.google.com/ping?sitemap=https://emailtooladviser.com/sitemap.xml" || true
+          curl -fsS "https://www.bing.com/ping?sitemap=https://emailtooladviser.com/sitemap.xml" || true
+
+      - name: Submit fresh URLs to Search Console (optional)
+        if: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON != '' }}
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+        run: |
+          echo "$GSC_SERVICE_ACCOUNT_JSON" > automation/gsc-credentials.json
+          python3 -m pip install --quiet google-api-python-client google-auth
+          python3 automation/search-console.py --action submit-sitemap || true
+          python3 automation/search-console.py --action submit-urls --limit 5 || true
