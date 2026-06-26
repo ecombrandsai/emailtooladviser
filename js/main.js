@@ -60,3 +60,40 @@
     });
   });
 })();
+
+
+// v7 — NerdWallet-style advertiser disclosure popup
+(function () {
+  var trigger  = document.getElementById('disclosure-trigger');
+  var popup    = document.getElementById('disclosure-popup');
+  var backdrop = document.getElementById('disclosure-backdrop');
+  if (!trigger || !popup) return;
+
+  function open() {
+    popup.classList.add('active');
+    if (backdrop) backdrop.classList.add('active');
+    popup.removeAttribute('hidden');
+    trigger.setAttribute('aria-expanded', 'true');
+  }
+  function close() {
+    popup.classList.remove('active');
+    if (backdrop) backdrop.classList.remove('active');
+    popup.setAttribute('hidden', '');
+    trigger.setAttribute('aria-expanded', 'false');
+  }
+  trigger.addEventListener('click', function (e) {
+    e.stopPropagation();
+    if (popup.classList.contains('active')) close(); else open();
+  });
+  if (backdrop) backdrop.addEventListener('click', close);
+  document.addEventListener('click', function (e) {
+    if (!popup.classList.contains('active')) return;
+    if (popup.contains(e.target) || trigger.contains(e.target)) return;
+    close();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && popup.classList.contains('active')) close();
+  });
+  var closeX = popup.querySelector('.disclosure-close-x');
+  if (closeX) closeX.addEventListener('click', close);
+})();
