@@ -654,3 +654,90 @@ html, body {
   table td:first-child::before,
   .comparison-table td:first-child::before { content: "" !important; min-width: 0 !important; margin: 0 !important; }
 }
+
+
+/* ========================================================================
+   v5 patch — NerdWallet-style advertiser disclosure
+   ======================================================================== */
+
+.disclosure-bar {
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+.disclosure-bar-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 4px 1.5rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .disclosure-bar-inner { padding: 4px 1rem; }
+}
+
+.advertiser-disclosure {
+  position: relative;
+  display: inline-block;
+}
+
+.disclosure-trigger {
+  background: none;
+  border: none;
+  color: #64748b;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px 0;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-family: inherit;
+  letter-spacing: 0.01em;
+}
+
+.disclosure-trigger:hover {
+  color: #2563eb;
+}
+
+.disclosure-popup {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px 20px;
+  width: 320px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  font-size: 13px;
+  line-height: 1.6;
+  color: #475569;
+  margin-top: 4px;
+}
+
+.disclosure-popup.active {
+  display: block;
+}
+
+.disclosure-popup p { margin: 0; }
+
+.disclosure-close {
+  background: none;
+  border: none;
+  color: #2563eb;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 8px 0 0;
+  font-family: inherit;
+  text-decoration: underline;
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .disclosure-popup { width: 280px; left: 0; }
+}
+
+@media (max-width: 480px) {
+  .disclosure-popup { width: calc(100vw - 32px); max-width: 280px; }
+}
