@@ -1,0 +1,78 @@
+name: Master SEO Content Machine
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    inputs:
+      article_count:
+        description: 'Articles to generate this run'
+        required: false
+        default: '3'
+
+permissions:
+  contents: write
+
+jobs:
+  master:
+    runs-on: ubuntu-latest
+    name: Run full SEO machine
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install anthropic openai requests pillow google-auth google-auth-oauthlib google-api-python-client
+
+      - name: Run keyword engine (discover + score)
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+        run: python3 automation/keyword-engine.py
+
+      - name: Generate new articles
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          COUNT="${{ github.event.inputs.article_count || '3' }}"
+          python3 automation/content-generator.py --count "$COUNT"
+
+      - name: SEO optimize
+        run: python3 automation/seo-optimizer.py --fix || true
+
+      - name: Image pipeline (photos + graphics)
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python3 automation/image-pipeline.py || true
+
+      - name: Rebuild sitemap
+        run: python3 automation/sitemap-generator.py --domain emailtooladviser.com
+
+      - name: Refresh dashboard data
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+        run: python3 automation/dashboard-updater.py || true
+
+      - name: Commit and push everything
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "EmailToolAdviser Master Pipeline"
+          git add -A
+          git diff --staged --quiet || git commit -m "Daily SEO machine run $(date +%Y-%m-%d)"
+          git push
+
+      - name: Submit fresh URLs to Search Console
+        if: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON != '' }}
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+        run: |
+          echo "$GSC_SERVICE_ACCOUNT_JSON" > automation/gsc-credentials.json
+          python3 automation/search-console.py --action submit-sitemap || true
+          python3 automation/search-console.py --action submit-urls --limit 5 || true

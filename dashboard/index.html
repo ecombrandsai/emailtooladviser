@@ -32,155 +32,70 @@
     .container { max-width: 1440px; margin: 0 auto; padding: 1.5rem 2rem; }
     .header-bar {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 1rem 2rem;
-      border-bottom: 1px solid var(--border);
-      background: var(--card);
-      position: sticky; top: 0; z-index: 10;
+      padding: 1rem 2rem; border-bottom: 1px solid var(--border);
+      background: var(--card); position: sticky; top: 0; z-index: 10;
+      flex-wrap: wrap; gap: 1rem;
     }
     .header-bar h1 {
       margin: 0; font-size: 1.25rem; font-weight: 700;
       display: flex; align-items: center; gap: 0.75rem;
     }
-    .pulse {
-      width: 10px; height: 10px; border-radius: 50%;
-      background: var(--success);
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-    .header-meta {
-      display: flex; align-items: center; gap: 1.5rem;
-      color: var(--text-muted); font-size: 0.875rem;
-    }
+    .pulse { width: 10px; height: 10px; border-radius: 50%; background: var(--success); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+    .health-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--success); display: inline-block; }
+    .health-dot.warn { background: var(--warn); }
+    .health-dot.bad { background: var(--danger); }
+    .header-meta { display: flex; align-items: center; gap: 1.5rem; color: var(--text-muted); font-size: 0.875rem; flex-wrap: wrap; }
     button.refresh {
       background: var(--accent); color: white; border: 0;
       padding: 0.5rem 1rem; border-radius: 6px;
-      font-weight: 600; cursor: pointer;
-      font-size: 0.875rem;
+      font-weight: 600; cursor: pointer; font-size: 0.875rem;
     }
     button.refresh:hover { background: #1d4ed8; }
     h2 {
       font-size: 0.75rem; font-weight: 700;
       text-transform: uppercase; letter-spacing: 0.08em;
-      color: var(--text-muted);
-      margin: 2rem 0 1rem;
+      color: var(--text-muted); margin: 2rem 0 1rem;
     }
-    .card-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.25rem;
-    }
-    .card .label {
-      font-size: 0.75rem; font-weight: 600;
-      text-transform: uppercase; letter-spacing: 0.06em;
-      color: var(--text-muted);
-      margin-bottom: 0.5rem;
-    }
-    .card .value {
-      font-size: 2rem; font-weight: 700; color: var(--text);
-      line-height: 1.1;
-    }
-    .card .delta {
-      font-size: 0.875rem; margin-top: 0.5rem;
-      display: flex; align-items: center; gap: 0.25rem;
-    }
+    .card-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; }
+    .card .label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 0.5rem; }
+    .card .value { font-size: 1.875rem; font-weight: 700; color: var(--text); line-height: 1.1; }
+    .card .delta { font-size: 0.875rem; margin-top: 0.5rem; display: flex; align-items: center; gap: 0.25rem; }
     .delta.up { color: var(--success); }
     .delta.down { color: var(--danger); }
     .delta.neutral { color: var(--text-muted); }
-    table {
-      width: 100%; border-collapse: collapse;
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 8px; overflow: hidden;
-      font-size: 0.875rem;
-    }
-    th, td {
-      padding: 0.75rem 1rem;
-      text-align: left;
-      border-bottom: 1px solid var(--border);
-    }
-    th {
-      background: var(--card-2);
-      font-size: 0.7rem; text-transform: uppercase;
-      letter-spacing: 0.06em; color: var(--text-muted);
-      font-weight: 700;
-    }
+    table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; font-size: 0.875rem; }
+    th, td { padding: 0.7rem 0.85rem; text-align: left; border-bottom: 1px solid var(--border); }
+    th { background: var(--card-2); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); font-weight: 700; cursor: pointer; }
     tbody tr:last-child td { border-bottom: 0; }
     tbody tr:hover { background: var(--card-2); }
-    .status {
-      display: inline-block;
-      padding: 0.15rem 0.5rem;
-      border-radius: 999px;
-      font-size: 0.7rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.05em;
-    }
-    .status.good { background: rgba(16, 185, 129, 0.15); color: var(--success); }
-    .status.warn { background: rgba(245, 158, 11, 0.15); color: var(--warn); }
-    .status.bad  { background: rgba(239, 68, 68, 0.15); color: var(--danger); }
-    .alerts-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1rem;
-    }
-    .alert {
-      padding: 1rem 1.25rem;
-      border-radius: 8px;
-      border-left: 4px solid;
-      background: var(--card);
-      border: 1px solid var(--border);
-    }
+    .status { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 999px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    .status.good { background: rgba(16,185,129,.15); color: var(--success); }
+    .status.warn { background: rgba(245,158,11,.15); color: var(--warn); }
+    .status.bad  { background: rgba(239,68,68,.15); color: var(--danger); }
+    .alerts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+    .alert { padding: 1rem 1.25rem; border-radius: 8px; border-left: 4px solid; background: var(--card); border: 1px solid var(--border); }
     .alert.success { border-left-color: var(--success); }
     .alert.warn { border-left-color: var(--warn); }
     .alert.danger { border-left-color: var(--danger); }
     .alert.info { border-left-color: var(--accent); }
-    .alert .alert-title {
-      font-weight: 700; margin-bottom: 0.25rem;
-      font-size: 0.875rem;
-    }
-    .alert .alert-body {
-      font-size: 0.8125rem; color: var(--text-soft);
-    }
-    .actions {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 0.75rem;
-    }
-    .action-btn {
-      background: var(--card);
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 1rem;
-      border-radius: 8px;
-      text-align: left;
-      cursor: pointer;
-      font-family: inherit;
-      transition: border-color 0.15s, background 0.15s;
-    }
-    .action-btn:hover {
-      border-color: var(--accent);
-      background: var(--accent-soft);
-    }
-    .action-btn .action-label {
-      font-weight: 700; font-size: 0.9375rem;
-      display: block;
-    }
-    .action-btn .action-sub {
-      color: var(--text-muted);
-      font-size: 0.8125rem;
-      margin-top: 0.25rem;
-      display: block;
-    }
-    .last-updated {
-      font-size: 0.75rem; color: var(--text-muted);
-    }
+    .alert .alert-title { font-weight: 700; margin-bottom: 0.25rem; font-size: 0.875rem; }
+    .alert .alert-body { font-size: 0.8125rem; color: var(--text-soft); }
+    .actions { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; }
+    .action-btn { background: var(--card); border: 1px solid var(--border); color: var(--text); padding: 1rem; border-radius: 8px; text-align: left; cursor: pointer; font-family: inherit; transition: border-color .15s, background .15s; }
+    .action-btn:hover { border-color: var(--accent); background: var(--accent-soft); }
+    .action-btn .action-label { font-weight: 700; font-size: 0.9375rem; display: block; }
+    .action-btn .action-sub { color: var(--text-muted); font-size: 0.8125rem; margin-top: 0.25rem; display: block; }
+    .last-updated { font-size: 0.75rem; color: var(--text-muted); }
+    .filter-bar { display: flex; gap: .5rem; margin-bottom: .75rem; flex-wrap: wrap; }
+    .filter-bar select, .filter-bar input { background: var(--card-2); color: var(--text); border: 1px solid var(--border); padding: .4rem .6rem; border-radius: 6px; font-size: .85rem; }
+    .small { font-size: .75rem; color: var(--text-muted); }
+    .summary-row { font-size: .875rem; color: var(--text-soft); }
+    .weekly-panel { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; }
+    .weekly-panel h3 { margin: 0 0 1rem; color: var(--text); font-size: 1.1rem; }
+    .weekly-panel .meta { color: var(--text-muted); font-size: .85rem; margin-bottom: 1rem; }
+    .weekly-panel a { color: var(--accent); }
   </style>
 </head>
 <body>
@@ -192,23 +107,39 @@
     <div class="header-meta">
       <div id="clock">—</div>
       <div class="last-updated">Last updated: <span id="last-updated">—</span></div>
+      <div title="Network health">Health: <span class="health-dot" id="health"></span></div>
       <button class="refresh" id="refresh-btn">Refresh now</button>
     </div>
   </header>
 
   <div class="container">
 
-    <h2>Revenue</h2>
+    <h2>Revenue command center</h2>
     <div class="card-row" id="revenue-cards"></div>
 
-    <h2>Traffic — all 5 domains combined</h2>
+    <h2>Traffic overview — all 5 domains combined</h2>
     <div class="card-row" id="traffic-cards"></div>
 
-    <h2>Content pipeline</h2>
+    <h2>Content pipeline status</h2>
     <div class="card-row" id="content-cards"></div>
 
-    <h2>Rankings overview</h2>
+    <h2>Keyword tracking</h2>
     <div class="card-row" id="rankings-cards"></div>
+
+    <h2>Content performance — every article</h2>
+    <div class="filter-bar">
+      <select id="domain-filter">
+        <option value="">All domains</option>
+      </select>
+      <select id="status-filter">
+        <option value="">All statuses</option>
+        <option value="climbing">Climbing</option>
+        <option value="plateaued">Plateaued</option>
+        <option value="declining">Declining</option>
+      </select>
+      <input type="text" id="text-filter" placeholder="Filter by keyword…">
+    </div>
+    <div id="content-table-wrap"></div>
 
     <h2>5-domain breakdown</h2>
     <table id="domain-table">
@@ -218,23 +149,26 @@
           <th>Articles live</th>
           <th>Monthly visitors</th>
           <th>Keywords ranking</th>
-          <th>Revenue contribution</th>
+          <th>Top article</th>
+          <th>Revenue this month</th>
           <th>Health</th>
+          <th>Last published</th>
+          <th>Next scheduled</th>
         </tr>
       </thead>
+      <tbody></tbody>
+    </table>
+
+    <h2>Top 10 articles by revenue</h2>
+    <table id="top10-revenue">
+      <thead><tr><th>Article</th><th>Domain</th><th>Monthly visitors</th><th>Est. monthly revenue</th><th>Position</th><th>Trend</th></tr></thead>
       <tbody></tbody>
     </table>
 
     <h2>Top moving keywords this week</h2>
     <table id="movers-table">
       <thead>
-        <tr>
-          <th>Keyword</th>
-          <th>Previous</th>
-          <th>Current</th>
-          <th>Change</th>
-          <th>Domain</th>
-        </tr>
+        <tr><th>Keyword</th><th>Previous</th><th>Current</th><th>Change</th><th>Domain</th></tr>
       </thead>
       <tbody></tbody>
     </table>
@@ -244,35 +178,44 @@
 
     <h2>Quick actions</h2>
     <div class="actions">
-      <button class="action-btn" onclick="alert('Triggers automation/content-generator.py via your CI runner.')">
-        <span class="action-label">Generate New Article</span>
-        <span class="action-sub">Trigger content-generator.py</span>
+      <button class="action-btn" onclick="alert('Trigger via the GitHub Actions Run-workflow button on master-pipeline.yml.')">
+        <span class="action-label">Generate new article</span>
+        <span class="action-sub">Triggers automation/content-generator.py</span>
       </button>
-      <button class="action-btn" onclick="alert('Opens automation/config.json for editing.')">
-        <span class="action-label">Update All CTAs</span>
+      <button class="action-btn" onclick="window.open('/automation/config.json','_blank')">
+        <span class="action-label">Update all CTAs</span>
         <span class="action-sub">Edit /automation/config.json</span>
       </button>
-      <button class="action-btn" onclick="alert('Triggers automation/rank-tracker.py.')">
-        <span class="action-label">Refresh Rankings</span>
-        <span class="action-sub">Pull latest GSC data</span>
+      <button class="action-btn" onclick="alert('Trigger via the GitHub Actions Run-workflow button on master-pipeline.yml.')">
+        <span class="action-label">Refresh rankings</span>
+        <span class="action-sub">Triggers automation/rank-tracker.py</span>
       </button>
-      <button class="action-btn" onclick="alert('Triggers automation/search-console.py with --action submit-sitemap.')">
-        <span class="action-label">Submit to Google</span>
-        <span class="action-sub">Index new URLs</span>
+      <button class="action-btn" onclick="alert('Trigger via GitHub Actions: search-console.py --action submit-sitemap')">
+        <span class="action-label">Submit sitemaps</span>
+        <span class="action-sub">Ping Google + GSC</span>
       </button>
-      <button class="action-btn" onclick="window.open('/reports/weekly-report.html', '_blank')">
-        <span class="action-label">View Weekly Report</span>
-        <span class="action-sub">Open latest report</span>
+      <button class="action-btn" onclick="downloadCSV()">
+        <span class="action-label">Download CSV</span>
+        <span class="action-sub">All article performance data</span>
       </button>
+      <button class="action-btn" id="view-weekly-btn">
+        <span class="action-label">View weekly report</span>
+        <span class="action-sub">Latest Monday morning report</span>
+      </button>
+    </div>
+
+    <h2>Weekly report</h2>
+    <div class="weekly-panel" id="weekly-panel">
+      <div class="small">No report yet — runs every Monday 08:00 UTC.</div>
     </div>
 
   </div>
 
 <script>
   const REFRESH_INTERVAL_MS = 60000;
-  const fmt$ = (n) => '$' + (n || 0).toLocaleString();
-  const fmt = (n) => (n || 0).toLocaleString();
-  const fmtPct = (n) => (n >= 0 ? '+' : '') + (n || 0).toFixed(1) + '%';
+  const fmt$ = n => '$' + (n || 0).toLocaleString();
+  const fmt  = n => (n || 0).toLocaleString();
+  const fmtPct = n => (n >= 0 ? '+' : '') + (n || 0).toFixed(1) + '%';
 
   function setClock() {
     const d = new Date();
@@ -281,24 +224,20 @@
       hour: 'numeric', minute: '2-digit', second: '2-digit'
     });
   }
-  setClock();
-  setInterval(setClock, 1000);
+  setClock(); setInterval(setClock, 1000);
+
+  let _allContentRows = [];
 
   async function jget(path) {
     try {
       const r = await fetch(path + '?t=' + Date.now());
       if (!r.ok) throw new Error('HTTP ' + r.status);
       return await r.json();
-    } catch (e) {
-      console.warn('Failed to load', path, e);
-      return null;
-    }
+    } catch (e) { console.warn('failed:', path, e); return null; }
   }
 
   function card(label, value, delta) {
-    const klass = delta && delta.dir === 'up' ? 'up'
-                : delta && delta.dir === 'down' ? 'down'
-                : 'neutral';
+    const klass = delta && delta.dir === 'up' ? 'up' : delta && delta.dir === 'down' ? 'down' : 'neutral';
     const arrow = klass === 'up' ? '▲' : klass === 'down' ? '▼' : '—';
     return `<div class="card">
       <div class="label">${label}</div>
@@ -307,153 +246,227 @@
     </div>`;
   }
 
+  function setHealth(state) {
+    const dot = document.getElementById('health');
+    dot.classList.remove('warn', 'bad');
+    if (state === 'warn') dot.classList.add('warn');
+    if (state === 'bad') dot.classList.add('bad');
+  }
+
   async function loadAll() {
-    const [rev, traf, cont, rank, queue, log] = await Promise.all([
+    const [rev, traf, cont, rank, queue, log, alerts, weekly] = await Promise.all([
       jget('/data/revenue.json'),
       jget('/data/traffic.json'),
       jget('/data/content.json'),
       jget('/data/rankings.json'),
       jget('/automation/keyword-queue.json'),
-      jget('/automation/publish-log.json')
+      jget('/automation/publish-log.json'),
+      jget('/data/alerts.json'),
+      jget('/data/latest-report.json'),
     ]);
 
     // Revenue cards
     if (rev) {
-      const html = [
+      document.getElementById('revenue-cards').innerHTML = [
         card('This month revenue', fmt$(rev.this_month_revenue),
-             { dir: rev.mom_growth_pct >= 0 ? 'up' : 'down',
-               text: fmtPct(rev.mom_growth_pct) + ' MoM' }),
+             { dir: rev.mom_growth_pct >= 0 ? 'up' : 'down', text: fmtPct(rev.mom_growth_pct) + ' MoM' }),
         card('Last month revenue', fmt$(rev.last_month_revenue)),
-        card('Month-over-month growth', fmtPct(rev.mom_growth_pct)),
         card('YTD revenue', fmt$(rev.ytd_revenue)),
-        card('Projected next month', fmt$(rev.projected_next_month))
+        card('Projected next month', fmt$(rev.projected_next_month)),
+        card('Lifetime total', fmt$(rev.total_lifetime)),
+        card('CPA value', fmt$(rev.cpa_value)),
+        card('Est conv rate', ((rev.estimated_conversion_rate || 0) * 100).toFixed(1) + '%'),
       ].join('');
-      document.getElementById('revenue-cards').innerHTML = html;
     }
 
     // Traffic cards
     if (traf) {
       const t = traf.totals || {};
-      const html = [
+      document.getElementById('traffic-cards').innerHTML = [
         card('Today', fmt(t.today)),
         card('This week', fmt(t.this_week)),
         card('This month', fmt(t.this_month)),
-        card('Week-over-week growth', fmtPct(t.wow_growth_pct),
-             { dir: t.wow_growth_pct >= 0 ? 'up' : 'down',
-               text: fmtPct(t.wow_growth_pct) })
+        card('WoW growth', fmtPct(t.wow_growth_pct || 0)),
       ].join('');
-      document.getElementById('traffic-cards').innerHTML = html;
     }
 
     // Content cards
-    if (cont && queue) {
-      const totals = cont.totals || {};
-      const queueLen = (queue.keywords || []).filter(k => k.status === 'unpublished').length;
-      const nextPublish = Object.values(cont.domains || {})
-        .map(d => d.next_scheduled_publish).filter(Boolean).sort()[0];
-      const html = [
-        card('Total articles live', fmt(totals.articles_live)),
-        card('Published this week', fmt(totals.articles_published_this_week)),
-        card('Articles in queue', fmt(queueLen)),
-        card('Days of content queued', fmt(totals.days_of_content_queued_at_current_pace)),
-        card('Next scheduled', nextPublish ? new Date(nextPublish).toLocaleString() : '—')
+    if (cont) {
+      const tot = cont.totals || {};
+      document.getElementById('content-cards').innerHTML = [
+        card('Articles live', fmt(tot.articles_live)),
+        card('Published this week', fmt(tot.articles_published_this_week)),
+        card('Queue size', fmt(tot.articles_in_queue)),
+        card('Days of content queued', fmt(tot.days_of_content_queued_at_current_pace)),
+        card('Next scheduled', cont.next_scheduled ? new Date(cont.next_scheduled).toLocaleString() : '—'),
       ].join('');
-      document.getElementById('content-cards').innerHTML = html;
     }
 
     // Rankings cards
     if (rank) {
       const s = rank.summary || {};
-      const html = [
+      document.getElementById('rankings-cards').innerHTML = [
         card('Top 3', fmt(s.top_3)),
         card('Top 10', fmt(s.top_10)),
         card('Top 100', fmt(s.top_100)),
         card('New this week', fmt(s.new_this_week)),
-        card('Positions gained', fmt(s.positions_gained),
-             { dir: 'up', text: 'this week' }),
-        card('Positions lost', fmt(s.positions_lost),
-             { dir: 'down', text: 'this week' })
+        card('Positions gained', fmt(s.positions_gained), { dir: 'up', text: 'this week' }),
+        card('Positions lost', fmt(s.positions_lost), { dir: 'down', text: 'this week' }),
       ].join('');
-      document.getElementById('rankings-cards').innerHTML = html;
     }
 
-    // Domain table
+    // Per-domain table
     if (cont && traf && rev) {
       const rows = Object.keys(cont.domains || {}).map(domain => {
         const c = cont.domains[domain] || {};
         const t = (traf.domains || {})[domain] || {};
         const r = (rev.by_domain || {})[domain] || {};
-        // simple health: live articles >0 = good, ==0 = warn
         const health = c.articles_live > 0
           ? '<span class="status good">Healthy</span>'
           : '<span class="status warn">No content yet</span>';
         return `<tr>
-          <td><strong>${domain}</strong></td>
+          <td><a href="https://${domain}" target="_blank" style="color:var(--accent)">${domain}</a></td>
           <td>${fmt(c.articles_live)}</td>
           <td>${fmt(t.this_month)}</td>
           <td>—</td>
+          <td>—</td>
           <td>${fmt$(r.revenue)}</td>
           <td>${health}</td>
+          <td class="small">—</td>
+          <td class="small">${c.next_scheduled_publish ? new Date(c.next_scheduled_publish).toLocaleString() : '—'}</td>
         </tr>`;
       }).join('');
       document.querySelector('#domain-table tbody').innerHTML = rows
-        || '<tr><td colspan="6" style="color:var(--text-muted)">No data yet</td></tr>';
+        || '<tr><td colspan="9" class="small">No data yet</td></tr>';
     }
 
-    // Movers table
+    // Content performance — full table
+    if (rank && cont) {
+      _allContentRows = (rank.keywords || []).map(k => ({
+        keyword: k.keyword || '',
+        domain: k.domain || '',
+        position: k.position || 0,
+        impressions: k.impressions || 0,
+        clicks: k.clicks || 0,
+        ctr: k.ctr || 0,
+        est_revenue: Math.round((k.clicks || 0) * (rev?.estimated_conversion_rate || 0.04) * (rev?.cpa_value || 650)),
+        status: (k.position && k.position <= 10) ? 'climbing' : (k.position && k.position <= 30) ? 'plateaued' : 'declining',
+      }));
+      renderContentTable();
+      const domains = [...new Set(_allContentRows.map(r => r.domain))].sort();
+      const sel = document.getElementById('domain-filter');
+      sel.innerHTML = '<option value="">All domains</option>' + domains.map(d => `<option value="${d}">${d}</option>`).join('');
+    }
+
+    // Top 10 by revenue
+    if (_allContentRows.length) {
+      const top10 = _allContentRows.slice().sort((a,b) => b.est_revenue - a.est_revenue).slice(0, 10);
+      document.querySelector('#top10-revenue tbody').innerHTML = top10.map(r => `
+        <tr><td>${r.keyword}</td><td>${r.domain}</td>
+        <td>${fmt(r.clicks)}</td><td>${fmt$(r.est_revenue)}</td>
+        <td>${r.position}</td><td>—</td></tr>
+      `).join('') || '<tr><td colspan="6" class="small">No data yet</td></tr>';
+    }
+
+    // Movers
     if (rank && rank.movers_up) {
       const rows = (rank.movers_up || []).slice(0, 10).map(m => `
-        <tr>
-          <td>${m.keyword}</td>
-          <td>${m.previous_position}</td>
-          <td><strong>${m.current_position}</strong></td>
-          <td><span class="status good">▲ ${m.change}</span></td>
-          <td>${m.domain || '—'}</td>
-        </tr>
+        <tr><td>${m.keyword || ''}</td>
+        <td>${m.previous_position || '—'}</td>
+        <td><strong>${m.current_position || '—'}</strong></td>
+        <td><span class="status good">▲ ${m.change || '—'}</span></td>
+        <td>${m.domain || '—'}</td></tr>
       `).join('');
       document.querySelector('#movers-table tbody').innerHTML = rows
-        || '<tr><td colspan="5" style="color:var(--text-muted)">No movers this week — check back after the next rank-tracker.py run</td></tr>';
+        || '<tr><td colspan="5" class="small">No movers this week.</td></tr>';
     }
 
     // Alerts
-    const alerts = [];
-    if (rank && rank.movers_down && rank.movers_down.length > 0) {
-      rank.movers_down.slice(0, 3).forEach(m => alerts.push({
-        type: 'warn',
-        title: 'Ranking drop: ' + m.keyword,
-        body: m.previous_position + ' → ' + m.current_position + ' on ' + (m.domain || 'unknown domain')
+    const alertEls = [];
+    if (alerts) {
+      (alerts.red || []).forEach(a => alertEls.push({
+        cls: 'danger', title: a.type, body: a.msg || JSON.stringify(a),
+      }));
+      (alerts.orange || []).forEach(a => alertEls.push({
+        cls: 'warn', title: a.type, body: `${a.keyword} on ${a.domain} (pos ${a.position})`,
+      }));
+      (alerts.green || []).slice(0, 5).forEach(a => alertEls.push({
+        cls: 'success', title: a.type, body: `${a.keyword} ranking #${a.position} on ${a.domain}`,
       }));
     }
-    if (rank && rank.new_entries && rank.new_entries.length > 0) {
-      alerts.push({
-        type: 'success',
-        title: rank.new_entries.length + ' new keywords ranking',
-        body: 'New entries in top 100 this week. Open the weekly report for the full list.'
-      });
+    if (!alertEls.length) {
+      alertEls.push({ cls: 'info', title: 'All systems healthy', body: 'No alerts. Last sweep at ' + new Date().toLocaleTimeString() });
     }
-    if (cont && cont.totals && cont.totals.days_of_content_queued_at_current_pace < 3) {
-      alerts.push({
-        type: 'warn',
-        title: 'Content queue running low',
-        body: 'Less than 3 days of content queued. Run content-generator.py or add keywords to the queue.'
-      });
-    }
-    if (alerts.length === 0) {
-      alerts.push({
-        type: 'info',
-        title: 'All systems healthy',
-        body: 'No alerts. Last full sweep completed at ' + new Date().toLocaleTimeString() + '.'
-      });
-    }
-    document.getElementById('alerts').innerHTML = alerts.map(a => `
-      <div class="alert ${a.type === 'success' ? 'success' : a.type === 'warn' ? 'warn' : a.type === 'danger' ? 'danger' : 'info'}">
+    document.getElementById('alerts').innerHTML = alertEls.map(a => `
+      <div class="alert ${a.cls}">
         <div class="alert-title">${a.title}</div>
         <div class="alert-body">${a.body}</div>
       </div>
     `).join('');
 
+    // Health
+    setHealth(alertEls.find(a => a.cls === 'danger') ? 'bad'
+              : alertEls.find(a => a.cls === 'warn') ? 'warn' : 'ok');
+
+    // Weekly report
+    const wp = document.getElementById('weekly-panel');
+    if (weekly && weekly.summary_html) {
+      const headline = weekly.headline || {};
+      wp.innerHTML = `
+        <h3>Latest weekly report</h3>
+        <div class="meta">Generated: ${weekly.generated_at}
+          · Articles: ${fmt(headline.articles)}
+          · Revenue: ${fmt$(headline.revenue)}
+          · Top 10: ${fmt(headline.top_10)}</div>
+        ${weekly.summary_html}
+        <p><a href="${weekly.report_path}" target="_blank">Open full HTML report →</a></p>
+      `;
+      const btn = document.getElementById('view-weekly-btn');
+      btn.onclick = () => window.open(weekly.report_path, '_blank');
+    }
+
     document.getElementById('last-updated').textContent = new Date().toLocaleTimeString();
   }
+
+  function renderContentTable() {
+    const dom = document.getElementById('domain-filter').value;
+    const st = document.getElementById('status-filter').value;
+    const tx = document.getElementById('text-filter').value.toLowerCase();
+    const rows = _allContentRows.filter(r =>
+      (!dom || r.domain === dom) &&
+      (!st || r.status === st) &&
+      (!tx || r.keyword.toLowerCase().includes(tx))
+    );
+    const html = `<table><thead><tr>
+      <th>Keyword</th><th>Domain</th><th>Position</th>
+      <th>Impressions/wk</th><th>Clicks/wk</th><th>CTR</th>
+      <th>Est. revenue</th><th>Status</th></tr></thead><tbody>
+    ${rows.map(r => `<tr>
+      <td>${r.keyword}</td><td>${r.domain}</td><td>${r.position}</td>
+      <td>${fmt(r.impressions)}</td><td>${fmt(r.clicks)}</td>
+      <td>${(r.ctr || 0).toFixed(2)}%</td>
+      <td>${fmt$(r.est_revenue)}</td>
+      <td><span class="status ${r.status === 'climbing' ? 'good' : r.status === 'plateaued' ? 'warn' : 'bad'}">${r.status}</span></td>
+    </tr>`).join('') || '<tr><td colspan="8" class="small">No data yet</td></tr>'}
+    </tbody></table>`;
+    document.getElementById('content-table-wrap').innerHTML = html;
+  }
+  ['domain-filter','status-filter','text-filter'].forEach(id => {
+    document.getElementById(id).addEventListener('input', renderContentTable);
+  });
+
+  window.downloadCSV = function() {
+    if (!_allContentRows.length) return;
+    const headers = Object.keys(_allContentRows[0]);
+    const csv = [headers.join(','),
+      ..._allContentRows.map(r => headers.map(h => JSON.stringify(r[h] ?? '')).join(','))
+    ].join('\n');
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'content-performance-' + new Date().toISOString().slice(0, 10) + '.csv';
+    a.click();
+  };
 
   document.getElementById('refresh-btn').addEventListener('click', loadAll);
   loadAll();
