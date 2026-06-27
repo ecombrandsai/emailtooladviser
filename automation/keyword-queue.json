@@ -9054,13 +9054,14 @@
       "difficulty": "medium",
       "intent": "bottom_funnel",
       "priority_score": 95,
-      "status": "pending",
+      "status": "published",
       "target_domain": "bestemailtoolreviews.com",
       "suggested_title": "Best Email Marketing Tools Reviewed (2026)",
       "suggested_slug": "best-email-marketing-tools-reviewed",
       "cpa_alignment": 9,
-      "published_date": null,
-      "article_url": null
+      "published_date": "2026-06-27T11:19:05Z",
+      "article_url": "https://bestemailtoolreviews.com/reviews/best-email-marketing-tools-reviewed.html",
+      "url": "https://bestemailtoolreviews.com/reviews/best-email-marketing-tools-reviewed.html"
     },
     {
       "id": 718,
