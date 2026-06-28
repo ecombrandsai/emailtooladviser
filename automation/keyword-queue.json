@@ -9103,13 +9103,14 @@
       "difficulty": "low",
       "intent": "bottom_funnel",
       "priority_score": 95,
-      "status": "pending",
+      "status": "published",
       "target_domain": "bestemailtoolreviews.com",
       "suggested_title": "Email Platform Reviews 2026",
       "suggested_slug": "email-platform-reviews-2026",
       "cpa_alignment": 8,
-      "published_date": null,
-      "article_url": null
+      "published_date": "2026-06-28T12:02:57Z",
+      "article_url": "https://bestemailtoolreviews.com/reviews/email-platform-reviews-2026.html",
+      "url": "https://bestemailtoolreviews.com/reviews/email-platform-reviews-2026.html"
     },
     {
       "id": 721,
