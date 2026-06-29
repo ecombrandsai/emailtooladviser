@@ -1,0 +1,10 @@
+{
+  "generated_at": "2026-06-29T17:49:31Z",
+  "report_path": "/reports/weekly-2026-06-29.html",
+  "headline": {
+    "articles": 15,
+    "revenue": 0,
+    "top_10": 0
+  },
+  "summary_html": "```html\n<h2>Week of June 22–29: 15 Pages Published, Zero Rankings to Show for It Yet</h2>\n\n<p><strong>The number that moved most: 15.</strong> That's how many pages went live across the network this week — 12 on emailtooladviser.com, 2 on bestemailtoolreviews.com, and 1 on emailmarketingrated.com. It's the only number that moved. Rankings sit at zero across every tier (top 3, top 10, top 100). Revenue is zero. No movers up, no movers down, no new ranking entries. The sites are brand new and publishing into a void — that's expected at this stage, but it means the content clock is now ticking and every indexing and authority decision made in the next two weeks matters.</p>\n\n<p><strong>What to watch:</strong> The emailtooladviser.com drop was heavy on Constant Contact-focused comparisons and reviews (3 comparisons, 3 reviews, 1 homepage). That's a tight topical cluster, which is good for internal linking and entity authority. However, 10 of the 12 emailtooladviser articles carry no keyword_id, meaning they weren't tied to tracked keywords before publishing. That's a targeting visibility gap we can't afford to repeat. The two bestemailtoolreviews.com pieces and the one on emailmarketingrated.com do have keyword IDs assigned — make that the baseline standard going forward.</p>\n\n<h2>Top 3 Actions for Next Week</h2>\n\n<ul>\n  <li><strong>Audit the 10 untracked emailtooladviser.com URLs</strong> — assign keyword IDs to every live page so rankings can be monitored the moment Google picks them up.</li>\n  <li><strong>Submit all 15 URLs to Google Search Console for manual indexing</strong> — don't wait on the crawl; force it and confirm coverage status by Friday.</li>\n  <li><strong>Build internal links across the Constant Contact cluster</strong> — connect the 3 comparisons, 3 reviews, and relevant small-business articles into a tight hub-and-spoke structure before publishing anything new on that domain.</li>\n</ul>\n```"
+}
