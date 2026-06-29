@@ -10000,13 +10000,14 @@
       "difficulty": "low",
       "intent": "bottom_funnel",
       "priority_score": 95,
-      "status": "pending",
+      "status": "published",
       "target_domain": "emailmarketingrated.com",
       "suggested_title": "Email Marketing Ratings For Service Business (2026)",
       "suggested_slug": "email-marketing-ratings-for-service-business",
       "cpa_alignment": 10,
-      "published_date": null,
-      "article_url": null
+      "published_date": "2026-06-29T17:16:13Z",
+      "article_url": "https://emailmarketingrated.com/reviews/email-marketing-ratings-for-service-business.html",
+      "url": "https://emailmarketingrated.com/reviews/email-marketing-ratings-for-service-business.html"
     },
     {
       "id": 777,
