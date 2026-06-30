@@ -10193,13 +10193,14 @@
       "difficulty": "low",
       "intent": "bottom_funnel",
       "priority_score": 95,
-      "status": "pending",
+      "status": "published",
       "target_domain": "emailmarketingrated.com",
       "suggested_title": "Email Marketing Software Rating Updates 2026",
       "suggested_slug": "email-marketing-software-rating-updates-2026",
       "cpa_alignment": 9,
-      "published_date": null,
-      "article_url": null
+      "published_date": "2026-06-30T12:35:19Z",
+      "article_url": "https://emailmarketingrated.com/reviews/email-marketing-software-rating-updates-2026.html",
+      "url": "https://emailmarketingrated.com/reviews/email-marketing-software-rating-updates-2026.html"
     },
     {
       "id": 789,
