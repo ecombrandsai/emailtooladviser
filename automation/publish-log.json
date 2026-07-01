@@ -127,6 +127,14 @@
       "type": "review",
       "domain": "emailmarketingrated.com",
       "published_at": "2026-06-30T12:35:19Z"
+    },
+    {
+      "id": 17,
+      "keyword_id": 838,
+      "url": "https://emailtoolratings.com/reviews/new-email-tool-ratings.html",
+      "type": "review",
+      "domain": "emailtoolratings.com",
+      "published_at": "2026-07-01T14:03:33Z"
     }
   ]
 }

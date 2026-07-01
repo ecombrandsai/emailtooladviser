@@ -10994,13 +10994,14 @@
       "difficulty": "low",
       "intent": "bottom_funnel",
       "priority_score": 95,
-      "status": "pending",
+      "status": "published",
       "target_domain": "emailtoolratings.com",
       "suggested_title": "New Email Tool Ratings (2026)",
       "suggested_slug": "new-email-tool-ratings",
       "cpa_alignment": 8,
-      "published_date": null,
-      "article_url": null
+      "published_date": "2026-07-01T14:03:33Z",
+      "article_url": "https://emailtoolratings.com/reviews/new-email-tool-ratings.html",
+      "url": "https://emailtoolratings.com/reviews/new-email-tool-ratings.html"
     },
     {
       "id": 839,

@@ -126,4 +126,10 @@
   <changefreq>monthly</changefreq>
   <priority>0.8</priority>
 </url>
+<url>
+  <loc>https://emailtoolratings.com/reviews/new-email-tool-ratings.html</loc>
+  <lastmod>2026-07-01</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
 </urlset>
